@@ -4,6 +4,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    &:hover {
+      .card-title {
+        background: #fbe0dc;
+        border-radius: 10px;
+      }
+    }
+
+    &.active {
+      .card-title {
+        background: #ff868e;
+        border-radius: 10px;
+        color: #fff;
+      }
+
+      .card-image-container {
+        border: 4px solid #fbe0dc;
+      }
+    }
   }
   &-image-container {
     border-radius: 20px;
@@ -15,7 +34,7 @@
   }
 
   &-title {
-    margin-top: 20px;
+    margin-top: 10px;
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
@@ -23,6 +42,8 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #ff868e;
+    width: 100%;
+    padding: 10px 0;
   }
 }
 
