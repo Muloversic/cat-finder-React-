@@ -1,0 +1,64 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  &-form {
+    &-input {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 30px;
+      border: none;
+      padding: 15px 15px 15px 20px;
+      color: #8c8c8c;
+      outline: none;
+      &::placeholder {
+        color: inherit;
+      }
+    }
+
+    &-btn {
+      background: #fbe0dc;
+      border-radius: 10px;
+      font-size: 20px;
+      padding: 8px 10px;
+      border: none;
+      color: #ff868e;
+      cursor: pointer;
+      &:hover {
+        color: #fff;
+        background: #ff868e;
+      }
+    }
+  }
+
+  &-list {
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+    margin-left: 8px;
+    &-item {
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      margin-left: 5px;
+    }
+
+    &-link {
+      color: #ff868e;
+      text-decoration: none;
+      font-size: 28px;
+      padding: 10px 15px;
+      &:hover {
+        background: #fbe0dc;
+        border-radius: 20px;
+      }
+    }
+
+    &-link.active {
+      background: #ff868e;
+      border-radius: 20px;
+      color: #fff;
+    }
+  }
+}

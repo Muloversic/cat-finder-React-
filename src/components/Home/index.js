@@ -1,3 +1,5 @@
+import { Routes, Route } from 'react-router-dom';
+
 import Sidebar from '../Sidebar';
 import DefaultScreen from '../AppContent/DefaultScreen';
 import BreedsPage from '../AppContent/BreedsPage';
@@ -11,7 +13,10 @@ const Home = () => {
   return (
     <div className="home-page">
       <Sidebar setContentType={setContentType} />
-      <BreedsPage />
+      <Routes>
+        <Route path="/" element={<DefaultScreen />} />
+        <Route path="breeds" element={<BreedsPage />} />
+      </Routes>
     </div>
   );
 };
