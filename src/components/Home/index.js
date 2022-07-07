@@ -2,7 +2,6 @@ import Sidebar from '../Sidebar';
 const Home = () => {
   return (
     <div>
-      home page
       <Sidebar />
     </div>
   );

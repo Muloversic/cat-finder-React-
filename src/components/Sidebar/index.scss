@@ -1,0 +1,46 @@
+.aside {
+  padding: 38px 0 0 133px;
+  display: flex;
+  flex-direction: column;
+  &-logo {
+    margin-top: 8px;
+    width: 106px;
+    height: 24px;
+  }
+
+  &-welcome {
+    margin-top: 83px;
+  }
+
+  &-title {
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 58px;
+    color: #1d1d1d;
+  }
+
+  &-text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    color: #8c8c8c;
+  }
+
+  &-action {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-action-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 29px;
+    color: #1d1d1d;
+  }
+
+  &-cards {
+    margin-top: 60px;
+    display: flex;
+    gap: 10px;
+  }
+}
