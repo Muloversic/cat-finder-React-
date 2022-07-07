@@ -1,7 +1,7 @@
 import './index.scss';
 const SidebarCard = ({ cardImage, cardType }) => {
   return (
-    <div class="card-body">
+    <div className="card-body">
       <div className={`card-image-container ${cardType}`}>
         <img src={cardImage} alt="card-image" className="card-type" />
       </div>

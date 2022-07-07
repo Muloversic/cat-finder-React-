@@ -1,8 +1,12 @@
 import Sidebar from '../Sidebar';
+import DefaultScreen from '../AppContent/DefaultScreen';
+
+import './index.scss';
 const Home = () => {
   return (
-    <div>
+    <div className="home-page">
       <Sidebar />
+      <DefaultScreen />
     </div>
   );
 };
