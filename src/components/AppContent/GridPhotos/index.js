@@ -1,16 +1,7 @@
 import './index.scss';
 const GridPhotos = ({ limitedCatImages }) => {
-    console.log(limitedCatImages);
-
-  return (
-    <div className="photos">
-      {/* <div className="photos-item"></div>
-      <div className="photos-item"></div>
-      <div className="photos-item"></div>
-      <div className="photos-item"></div>
-      <div className="photos-item"></div> */}
-    </div>
-  );
+  const catsImages = limitedCatImages.map((cat) => <img src={cat.url} alt="cat" className="photos-picture" key={cat.id} />);
+  return <div className="photos">{catsImages}</div>;
 };
 
 export default GridPhotos;
