@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'iconfont';
-  src: url('../fonts/iconfont.eot?89d703');
-  src: url('../fonts/iconfont.eot?89d703#iefix') format('embedded-opentype'),
-    url('../fonts/iconfont.ttf?89d703') format('truetype'), url('../fonts/iconfont.woff?89d703') format('woff'),
-    url('../fonts/iconfont.svg?89d703#iconfont') format('svg');
+  src: url('../fonts/iconfont.eot?gzx1jw');
+  src: url('../fonts/iconfont.eot?gzx1jw#iefix') format('embedded-opentype'),
+    url('../fonts/iconfont.ttf?gzx1jw') format('truetype'), url('../fonts/iconfont.woff?gzx1jw') format('woff'),
+    url('../fonts/iconfont.svg?gzx1jw#iconfont') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-dropdown:before {
+  content: '\e90d';
+}
 .icon-arrow-left:before {
   content: '\e900';
 }
