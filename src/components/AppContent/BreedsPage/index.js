@@ -37,7 +37,7 @@ const BreedsPage = ({ contentType }) => {
     <section className="breeds-page content">
       <Navbar />
       <ActionBar contentType={contentType} allCats={allCats} handleBreeds={handleBreeds} handleLimit={handleLimit} />
-      <GridPhotos limitedCatImages={limitedCatImages} />
+      <GridPhotos limitedCatImages={limitedCatImages}/>
     </section>
   );
 };
