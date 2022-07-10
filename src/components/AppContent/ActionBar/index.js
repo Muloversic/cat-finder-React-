@@ -46,8 +46,10 @@ const ActionBar = ({ contentType, allBreeds, handleBreeds, handleLimit }) => {
         })}
         onChange={handleLimit}
       />
-      <span className="actionbar-sort actionbar-sort--az"></span>
-      <span className="actionbar-sort actionbar-sort--za"></span>
+      <div className="actionbar-sort-buttons">
+        <span className="actionbar-sort actionbar-sort--az"></span>
+        <span className="actionbar-sort actionbar-sort--za"></span>
+      </div>
     </div>
   );
 };

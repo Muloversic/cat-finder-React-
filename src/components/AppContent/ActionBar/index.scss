@@ -47,12 +47,17 @@
     }
   }
 
+  &-sort-buttons {
+    display: flex;
+  }
+
   &-sort {
     width: 18px;
     height: 21px;
     cursor: pointer;
     &--az {
       background: url('../../../assets/icons/sort-az.svg');
+      margin-right: 10px;
     }
 
     &--za {

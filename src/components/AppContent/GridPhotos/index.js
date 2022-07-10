@@ -52,10 +52,13 @@ const GridPhotos = ({ limitedCatImages, limitedCats, allBreeds, catBreed }) => {
       if (catBreed !== '') {
         selectedCat = limitedCats.filter((cat) => cat.reference_image_id === imageId);
       }
-	  
+
       setSelectedCat(selectedCat);
     });
   }
+
+  
+  console.log(gridElement);
 
   return <div className="photos-container">{gridElement}</div>;
 };
