@@ -48,9 +48,11 @@ const GridPhotos = ({ limitedCatImages, limitedCats, allBreeds, catBreed }) => {
       if (catBreed === '') {
         selectedCat = allBreeds.filter((cat) => cat.reference_image_id === imageId);
       }
+
       if (catBreed !== '') {
         selectedCat = limitedCats.filter((cat) => cat.reference_image_id === imageId);
       }
+	  
       setSelectedCat(selectedCat);
     });
   }
