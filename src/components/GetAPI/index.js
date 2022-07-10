@@ -1,3 +1,9 @@
+export const getAllBreedsLimited = async (limit) => {
+  const catsData = await fetch(`https://api.thecatapi.com/v1/breeds?limit=${limit}`);
+  const response = await catsData.json();
+  return response;
+};
+
 export const getAllBreeds = async () => {
   const catsData = await fetch(`https://api.thecatapi.com/v1/breeds`);
   const response = await catsData.json();

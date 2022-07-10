@@ -1,9 +1,9 @@
 import Select from 'react-select';
 import './index.scss';
-const ActionBar = ({ contentType, allCats, handleBreeds, handleLimit }) => {
-  const optionsBreeds = [{ value: 'All breeds', label: 'All breeds' }];
+const ActionBar = ({ contentType, allBreeds, handleBreeds, handleLimit }) => {
+  const optionsBreeds = [{ value: '', label: 'All breeds' }];
 
-  allCats.forEach((catInfo) => {
+  allBreeds.forEach((catInfo) => {
     optionsBreeds.push({ value: catInfo.id, label: catInfo.name });
   });
 

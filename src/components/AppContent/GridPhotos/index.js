@@ -1,12 +1,58 @@
 import './index.scss';
-const GridPhotos = ({ limitedCatImages }) => {
-  const gridElement = [];;
-  const catsImages = limitedCatImages.map((cat) => (
-    <img src={cat.url} alt="cat" className="photos-picture" key={cat.id} />
-  ));
+import { nanoid } from 'nanoid';
+import { useEffect, useState } from 'react';
+const GridPhotos = ({ limitedCatImages, limitedCats, allBreeds, catBreed }) => {
+  const [selectedCat, setSelectedCat] = useState([]);
+  const gridElement = [];
+  let catsImages = [];
+
+  if (catBreed !== '') {
+    catsImages = limitedCatImages.map((cat) => {
+      if (cat.breeds.length > 0) {
+        return (
+          <div className="photos-picture" key={cat.id} data-photo-id={cat.id}>
+            <img src={cat.url} alt="cat" />
+            <div className="photos-hover-label">{cat.breeds[0].name}</div>
+          </div>
+        );
+      }
+    });
+  }
+
+  if (catBreed === '') {
+    catsImages = limitedCats.map((cat) => {
+      if (cat.image) {
+        return (
+          <div className="photos-picture" key={nanoid()} data-photo-id={cat.reference_image_id}>
+            <img src={cat.image.url} alt="cat" />
+            <div className="photos-hover-label">{cat.name}</div>
+          </div>
+        );
+      }
+    });
+  }
 
   for (let i = 0; i < catsImages.length; i += 5) {
-	gridElement.push(<div className="photos-grid">{catsImages.slice(i, i + 5)}</div>)
+    gridElement.push(
+      <div key={nanoid()} className="photos-grid">
+        {catsImages.slice(i, i + 5)}
+      </div>
+    );
+  }
+
+  const photoContainer = document.querySelector('.photos-container');
+  if (photoContainer) {
+    photoContainer.addEventListener('click', (event) => {
+      const imageId = event.target.getAttribute('data-photo-id');
+      let selectedCat = [];
+      if (catBreed === '') {
+        selectedCat = allBreeds.filter((cat) => cat.reference_image_id === imageId);
+      }
+      if (catBreed !== '') {
+        selectedCat = limitedCats.filter((cat) => cat.reference_image_id === imageId);
+      }
+      setSelectedCat(selectedCat);
+    });
   }
 
   return <div className="photos-container">{gridElement}</div>;
