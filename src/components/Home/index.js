@@ -15,7 +15,9 @@ const Home = () => {
       <Sidebar setContentType={setContentType} />
       <Routes>
         <Route path="/" element={<DefaultScreen />} />
-        <Route path="breeds" element={<BreedsPage contentType={contentType} />} />
+        <Route path="breeds" element={<BreedsPage contentType={contentType} />}>
+          <Route path=":breedsId" />
+        </Route>
       </Routes>
     </div>
   );

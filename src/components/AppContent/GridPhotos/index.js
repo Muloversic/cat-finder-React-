@@ -1,6 +1,6 @@
 import './index.scss';
 import { nanoid } from 'nanoid';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 const GridPhotos = ({ limitedCatImages, limitedCats, allBreeds, catBreed }) => {
   const [selectedCat, setSelectedCat] = useState([]);
   const gridElement = [];
@@ -44,21 +44,17 @@ const GridPhotos = ({ limitedCatImages, limitedCats, allBreeds, catBreed }) => {
   if (photoContainer) {
     photoContainer.addEventListener('click', (event) => {
       const imageId = event.target.getAttribute('data-photo-id');
-      let selectedCat = [];
       if (catBreed === '') {
-        selectedCat = allBreeds.filter((cat) => cat.reference_image_id === imageId);
+        const selectedCat = allBreeds.filter((cat) => cat.reference_image_id === imageId);
+        setSelectedCat(selectedCat);
       }
 
       if (catBreed !== '') {
-        selectedCat = limitedCats.filter((cat) => cat.reference_image_id === imageId);
+        const selectedCat = limitedCatImages.filter((cat) => cat.id === imageId);
+        setSelectedCat(selectedCat);
       }
-
-      setSelectedCat(selectedCat);
     });
   }
-
-  
-  console.log(gridElement);
 
   return <div className="photos-container">{gridElement}</div>;
 };
