@@ -1,0 +1,32 @@
+.user-log {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 70px;
+  &-text {
+    display: flex;
+  }
+
+  .log-time {
+    margin-right: 30px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #1d1d1d;
+  }
+
+  .log-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #8c8c8c;
+    span {
+      color: #1d1d1d;
+      font-weight: 500;
+    }
+  }
+
+  .log-icon {
+    color: #ff868e;
+    font-size: 20px;
+  }
+}
