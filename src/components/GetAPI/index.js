@@ -15,3 +15,13 @@ export const getLimitedImages = async (limit, breed) => {
   const response = await catsData.json();
   return response;
 };
+
+export const getRandomImage = async () => {
+  try {
+    const catsData = await fetch(`https://api.thecatapi.com/v1/images/search`);
+    const response = await catsData.json();
+    return response;
+  } catch (e) {
+    console.error(e);
+  }
+};

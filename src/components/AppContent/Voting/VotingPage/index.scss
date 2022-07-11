@@ -2,6 +2,7 @@
   &-section {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
   }
 
   &-image-container {
@@ -12,6 +13,9 @@
 
   &-img {
     border-radius: 20px;
+    width: 100%;
+    max-height: inherit;
+    object-fit: cover;
   }
 
   &-actions {
@@ -21,11 +25,20 @@
     position: absolute;
     width: 260px;
     height: 80px;
-    bottom: 0;
+    bottom: -35px;
     left: 50%;
     transform: translate(-50%, 0);
     padding: 5px;
     gap: 5px;
+    &::after {
+      content: '';
+      position: absolute;
+      width: 264px;
+      height: 93px;
+      z-index: -1;
+      background-color: #fff;
+      border-radius: 20px;
+    }
 
     .action {
       width: 80px;
@@ -33,6 +46,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
+
       &-icon {
         font-size: 25px;
         color: #fff;
@@ -40,14 +55,36 @@
 
       &-like {
         background: #97eab9;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        &:hover {
+          background: rgba(151, 234, 185, 0.3);
+          .action-icon {
+            color: #97eab9;
+          }
+        }
       }
 
       &-favour {
         background: #ff868e;
+        &:hover {
+          background: rgba(255, 134, 142, 0.3);
+          .action-icon {
+            color: #ff868e;
+          }
+        }
       }
 
       &-dislike {
         background: #ffd280;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        &:hover {
+          background: rgba(255, 210, 128, 0.3);
+          .action-icon {
+            color: #ffd280;
+          }
+        }
       }
     }
   }
