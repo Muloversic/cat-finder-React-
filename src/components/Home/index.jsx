@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import SharedBreedsPage from '../AppContent/Breeds/SharedBreedsPage';
 import Sidebar from '../Sidebar';
-import DefaultScreen from '../AppContent/Breeds//DefaultScreen';
+import DefaultScreen from '../AppContent/DefaultScreen';
 import BreedsPage from '../AppContent/Breeds//BreedsPage';
 import CatPage from '../AppContent/Breeds//CatPage';
 

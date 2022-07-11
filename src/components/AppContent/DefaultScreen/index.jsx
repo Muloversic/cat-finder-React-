@@ -1,4 +1,4 @@
-import defaultBackground from '../../../../assets/girl-and-pet.png';
+import defaultBackground from '../../../assets/girl-and-pet.png';
 
 import './index.scss';
 const DefaultScreen = () => {
