@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { Outlet } from 'react-router';
+import SharedBreedsPage from '../AppContent/SharedBreedsPage';
 import Sidebar from '../Sidebar';
 import DefaultScreen from '../AppContent/DefaultScreen';
 import BreedsPage from '../AppContent/BreedsPage';
@@ -16,7 +16,8 @@ const Home = () => {
       <Sidebar setContentType={setContentType} />
       <Routes>
         <Route index element={<DefaultScreen />} />
-        <Route path="breeds" element={<BreedsPage contentType={contentType} />}>
+        <Route path="breeds" element={<SharedBreedsPage />}>
+          <Route index element={<BreedsPage contentType={contentType} />} />
           <Route path=":breedsId" element={<CatPage />} />
         </Route>
       </Routes>

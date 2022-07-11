@@ -1,10 +1,8 @@
 import { getAllBreedsLimited, getLimitedImages, getAllBreeds } from '../../GetAPI';
-import Navbar from '../Navbar';
 import ActionBar from '../ActionBar';
 import GridPhotos from '../GridPhotos';
 import './index.scss';
 import { useEffect, useState } from 'react';
-import { Outlet } from 'react-router';
 
 const BreedsPage = ({ contentType }) => {
   const [limitedCats, setLimitedCats] = useState([]);
@@ -42,11 +40,10 @@ const BreedsPage = ({ contentType }) => {
   };
 
   return (
-    <section className="breeds-page content">
-      <Navbar />
+    <>
       <ActionBar contentType={contentType} allBreeds={allBreeds} handleBreeds={handleBreeds} handleLimit={handleLimit} />
       <GridPhotos limitedCatImages={limitedCatImages} limitedCats={limitedCats} allBreeds={allBreeds} catBreed={catBreed} />
-    </section>
+    </>
   );
 };
 
