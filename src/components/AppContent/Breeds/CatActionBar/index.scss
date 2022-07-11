@@ -3,30 +3,22 @@
   align-items: center;
   justify-content: flex-start;
   margin-top: 30px;
-  &-btn-prev {
+  margin-bottom: 20px;
+  .actionbar-heading {
+    margin-left: 15px;
     background: #fbe0dc;
-    border-radius: 10px;
-    font-size: 20px;
-    padding: 8px 10px;
-    border: none;
     color: #ff868e;
-    cursor: pointer;
-    &:hover {
-      color: #fff;
-      background: #ff868e;
-    }
   }
 
-  &-heading {
-    font-weight: 500;
+  .actionbar-breed-id {
     font-size: 20px;
     line-height: 30px;
     text-align: center;
-    text-transform: uppercase;
     letter-spacing: 2px;
-    padding: 5px 30px;
+    color: #fff;
     background: #ff868e;
     border-radius: 10px;
-    color: #fff;
+    padding: 5px 30px;
+    margin-left: 10px;
   }
 }

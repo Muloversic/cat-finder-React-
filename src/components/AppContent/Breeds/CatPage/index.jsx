@@ -6,7 +6,7 @@ const CatPage = () => {
   const catInfo = location.state[0];
   return (
     <>
-      <ActionBar />
+      <ActionBar breedId={catInfo.id} />
       <section className="cat-info">
         <div className="cat-picture-container">
           <img src={catInfo.image.url} alt={catInfo.name} className="cat-picture" />
