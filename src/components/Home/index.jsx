@@ -5,6 +5,7 @@ import Sidebar from '../Sidebar';
 import DefaultScreen from '../AppContent/DefaultScreen';
 import BreedsPage from '../AppContent/Breeds//BreedsPage';
 import CatPage from '../AppContent/Breeds//CatPage';
+import VotingPage from '../AppContent/Voting/VotingPage';
 import './index.scss';
 
 const Home = () => {
@@ -24,6 +25,7 @@ const Home = () => {
           <Route index element={<BreedsPage currentPageName={currentPageName} />} />
           <Route path=":breedsId" element={<CatPage currentPageName={currentPageName} />} />
         </Route>
+        <Route path="voting" element={<VotingPage currentPageName={currentPageName} />} />
       </Routes>
     </div>
   );
