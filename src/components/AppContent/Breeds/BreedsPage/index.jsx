@@ -49,8 +49,7 @@ const BreedsPage = ({ contentType }) => {
       setSortOred('DESC');
     }
   };
-
-  console.log(limitedCats);
+  
   return (
     <>
       <ActionBar
