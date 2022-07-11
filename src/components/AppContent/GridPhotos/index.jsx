@@ -50,7 +50,16 @@ const GridPhotos = ({ limitedCatImages, limitedCats, allBreeds, catBreed }) => {
 
     if (catBreed !== '') {
       const selectedCat = limitedCatImages.filter((cat) => cat.id === imageId);
-      navigate(imageId, { state: selectedCat });
+      const mainInfo = selectedCat[0].breeds[0];
+      const image = {};
+      for (let key in selectedCat[0]) {
+        if (typeof selectedCat[0][key] !== 'object') {
+          image[key] = selectedCat[0][key];
+        }
+      }
+
+      const formatedCatData = [{ ...mainInfo, image }];
+      navigate(imageId, { state: formatedCatData });
     }
   };
 
