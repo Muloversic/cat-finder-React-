@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
-import SharedBreedsPage from '../AppContent/SharedBreedsPage';
+import SharedBreedsPage from '../AppContent/Breeds/SharedBreedsPage';
 import Sidebar from '../Sidebar';
-import DefaultScreen from '../AppContent/DefaultScreen';
-import BreedsPage from '../AppContent/BreedsPage';
-import CatPage from '../AppContent/CatPage';
+import DefaultScreen from '../AppContent/Breeds//DefaultScreen';
+import BreedsPage from '../AppContent/Breeds//BreedsPage';
+import CatPage from '../AppContent/Breeds//CatPage';
 
 import './index.scss';
 import { useState } from 'react';

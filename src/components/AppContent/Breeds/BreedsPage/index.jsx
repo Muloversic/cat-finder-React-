@@ -1,4 +1,4 @@
-import { getAllBreedsLimited, getLimitedImages, getAllBreeds } from '../../GetAPI';
+import { getAllBreedsLimited, getLimitedImages, getAllBreeds } from '../../../GetAPI';
 import ActionBar from '../ActionBar';
 import GridPhotos from '../GridPhotos';
 import './index.scss';
