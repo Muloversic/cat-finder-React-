@@ -4,6 +4,7 @@ import ActionBar from '../ActionBar';
 import GridPhotos from '../GridPhotos';
 import './index.scss';
 import { useEffect, useState } from 'react';
+import { Outlet } from 'react-router';
 
 const BreedsPage = ({ contentType }) => {
   const [limitedCats, setLimitedCats] = useState([]);

@@ -2,6 +2,7 @@ import './index.scss';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Outlet } from 'react-router';
 const GridPhotos = ({ limitedCatImages, limitedCats, allBreeds, catBreed }) => {
   const [selectedCat, setSelectedCat] = useState([]);
   const gridElement = [];
@@ -14,7 +15,7 @@ const GridPhotos = ({ limitedCatImages, limitedCats, allBreeds, catBreed }) => {
           <div className="photos-picture" key={cat.id} data-photo-id={cat.id}>
             <img src={cat.url} alt="cat" />
             <div className="photos-hover-label">{cat.breeds[0].name}</div>
-            <Link to={cat.id} className="photos-link"></Link>
+            <Link to={cat.id} className="photos-link" selectedCat={selectedCat}></Link>
           </div>
         );
       }
@@ -28,7 +29,7 @@ const GridPhotos = ({ limitedCatImages, limitedCats, allBreeds, catBreed }) => {
           <div className="photos-picture" key={nanoid()} data-photo-id={cat.reference_image_id}>
             <img src={cat.image.url} alt="cat" />
             <div className="photos-hover-label">{cat.name}</div>
-            <Link to={cat.reference_image_id} className="photos-link"></Link>
+            <Link to={cat.reference_image_id} className="photos-link" state={selectedCat}></Link>
           </div>
         );
       }
@@ -59,7 +60,11 @@ const GridPhotos = ({ limitedCatImages, limitedCats, allBreeds, catBreed }) => {
     });
   }
 
-  return <div className="photos-container">{gridElement}</div>;
+  return (
+    <>
+      <div className="photos-container">{gridElement}</div>
+    </>
+  );
 };
 
 export default GridPhotos;
