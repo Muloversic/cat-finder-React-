@@ -1,4 +1,4 @@
-import { getAllBreedsLimited, getLimitedImages, getAllBreeds } from '../../../GetAPI';
+import { getAllBreedsLimited, getLimitedImages, getAllBreeds, getLimitedImagesByOrder } from '../../../GetAPI';
 import ActionBar from '../BreedsActionBar';
 import GridPhotos from '../GridPhotos';
 import './index.scss';
@@ -10,6 +10,7 @@ const BreedsPage = ({ contentType }) => {
   const [allBreeds, setAllBreeds] = useState([]);
   const [catBreed, setCatBreed] = useState('');
   const [searchLimit, setSearchLimit] = useState(10);
+  const [sortOrder, setSortOred] = useState('');
   useEffect(() => {
     const setLimitedBreedCats = async () => {
       const limitedBreeds = await getAllBreedsLimited(searchLimit);
@@ -39,10 +40,33 @@ const BreedsPage = ({ contentType }) => {
     setSearchLimit(limit.value);
   };
 
+  const handleImageOrder = function (event) {
+    if ([...event.target.classList].includes('actionbar-sort--az')) {
+      setSortOred('ASC');
+    }
+
+    if ([...event.target.classList].includes('actionbar-sort--za')) {
+      setSortOred('DESC');
+    }
+  };
+
+  console.log(limitedCats);
   return (
     <>
-      <ActionBar contentType={contentType} allBreeds={allBreeds} handleBreeds={handleBreeds} handleLimit={handleLimit} />
-      <GridPhotos limitedCatImages={limitedCatImages} limitedCats={limitedCats} allBreeds={allBreeds} catBreed={catBreed} />
+      <ActionBar
+        contentType={contentType}
+        allBreeds={allBreeds}
+        handleBreeds={handleBreeds}
+        handleLimit={handleLimit}
+        handleImageOrder={handleImageOrder}
+      />
+      <GridPhotos
+        limitedCatImages={limitedCatImages}
+        limitedCats={limitedCats}
+        allBreeds={allBreeds}
+        catBreed={catBreed}
+        sortOrder={sortOrder}
+      />
     </>
   );
 };

@@ -2,10 +2,17 @@ import './index.scss';
 import { nanoid } from 'nanoid';
 import { useNavigate } from 'react-router-dom';
 
-const GridPhotos = ({ limitedCatImages, limitedCats, allBreeds, catBreed }) => {
+const GridPhotos = ({ limitedCatImages, limitedCats, allBreeds, catBreed, sortOrder }) => {
   const navigate = useNavigate();
   const gridElement = [];
   let catsImages = [];
+  if (sortOrder === 'ASC') {
+    limitedCats.sort((a, b) => (b.name < a.name ? 1 : -1));
+  }
+
+  if (sortOrder === 'DESC') {
+    limitedCats.sort((a, b) => (b.name > a.name ? 1 : -1));
+  }
 
   if (catBreed !== '') {
     catsImages = limitedCatImages.map((cat) => {
@@ -50,6 +57,7 @@ const GridPhotos = ({ limitedCatImages, limitedCats, allBreeds, catBreed }) => {
 
     if (catBreed !== '') {
       const selectedCat = limitedCatImages.filter((cat) => cat.id === imageId);
+      console.log(limitedCatImages);
       const mainInfo = selectedCat[0].breeds[0];
       const image = {};
       for (let key in selectedCat[0]) {

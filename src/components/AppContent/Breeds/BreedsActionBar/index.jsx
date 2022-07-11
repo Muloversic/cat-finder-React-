@@ -1,6 +1,6 @@
 import Select from 'react-select';
 import './index.scss';
-const ActionBar = ({ contentType, allBreeds, handleBreeds, handleLimit }) => {
+const ActionBar = ({ contentType, allBreeds, handleBreeds, handleLimit, handleImageOrder }) => {
   const optionsBreeds = [{ value: '', label: 'All breeds' }];
 
   allBreeds.forEach((catInfo) => {
@@ -46,7 +46,7 @@ const ActionBar = ({ contentType, allBreeds, handleBreeds, handleLimit }) => {
         })}
         onChange={handleLimit}
       />
-      <div className="actionbar-sort-buttons">
+      <div className="actionbar-sort-buttons" onClick={handleImageOrder}>
         <span className="actionbar-sort actionbar-sort--az"></span>
         <span className="actionbar-sort actionbar-sort--za"></span>
       </div>
