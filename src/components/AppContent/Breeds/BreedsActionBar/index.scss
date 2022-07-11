@@ -73,6 +73,10 @@
       color: #8c8c8c;
     }
 
+    &__menu {
+      z-index: 5;
+    }
+
     &__control {
       width: 226px;
       border: none;
