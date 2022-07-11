@@ -1,4 +1,4 @@
-import { getAllBreedsLimited, getLimitedImages, getAllBreeds, getLimitedImagesByOrder } from '../../../GetAPI';
+import { getAllBreedsLimited, getLimitedImages, getAllBreeds } from '../../../GetAPI';
 import ActionBar from '../BreedsActionBar';
 import GridPhotos from '../GridPhotos';
 import './index.scss';
@@ -49,7 +49,7 @@ const BreedsPage = ({ contentType }) => {
       setSortOred('DESC');
     }
   };
-  
+
   return (
     <>
       <ActionBar
