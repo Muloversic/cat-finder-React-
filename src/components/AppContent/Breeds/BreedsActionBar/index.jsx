@@ -1,6 +1,6 @@
 import Select from 'react-select';
 import './index.scss';
-const ActionBar = ({ contentType, allBreeds, handleBreeds, handleLimit, handleImageOrder }) => {
+const ActionBar = ({ currentPageName, allBreeds, handleBreeds, handleLimit, handleImageOrder }) => {
   const optionsBreeds = [{ value: '', label: 'All breeds' }];
 
   allBreeds.forEach((catInfo) => {
@@ -17,7 +17,7 @@ const ActionBar = ({ contentType, allBreeds, handleBreeds, handleLimit, handleIm
   return (
     <div className="actionbar">
       <button className="actionbar-btn-prev icon-arrow-left"></button>
-      <h2 className="actionbar-heading">{contentType}</h2>
+      <h2 className="actionbar-heading">{currentPageName}</h2>
       <Select
         options={optionsBreeds}
         classNamePrefix="custom-select"

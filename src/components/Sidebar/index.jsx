@@ -7,7 +7,7 @@ import cardImageGallery from '../../assets/images-search.png';
 
 import './index.scss';
 
-const Sidebar = ({ setContentType }) => {
+const Sidebar = ({ currentPageName }) => {
   return (
     <aside className="aside">
       <img src={logo} alt="logo" className="aside-logo" />
@@ -18,9 +18,9 @@ const Sidebar = ({ setContentType }) => {
       <div className="aside-action">
         <h2 className="aside-action-title">Lets start using The Cat API</h2>
         <div className="aside-cards card">
-          <SidebarCard cardImage={cardImageVoting} cardType={'voting'} setContentType={setContentType} />
-          <SidebarCard cardImage={cardImageBreeds} cardType={'breeds'} setContentType={setContentType} />
-          <SidebarCard cardImage={cardImageGallery} cardType={'gallery'} setContentType={setContentType} />
+          <SidebarCard cardImage={cardImageVoting} cardType={'voting'} currentPageName={currentPageName} />
+          <SidebarCard cardImage={cardImageBreeds} cardType={'breeds'} currentPageName={currentPageName} />
+          <SidebarCard cardImage={cardImageGallery} cardType={'gallery'} currentPageName={currentPageName} />
         </div>
       </div>
     </aside>

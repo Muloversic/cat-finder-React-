@@ -4,7 +4,7 @@ import GridPhotos from '../GridPhotos';
 import './index.scss';
 import { useEffect, useState } from 'react';
 
-const BreedsPage = ({ contentType }) => {
+const BreedsPage = ({ currentPageName }) => {
   const [limitedCats, setLimitedCats] = useState([]);
   const [limitedCatImages, setLimitedCatImages] = useState([]);
   const [allBreeds, setAllBreeds] = useState([]);
@@ -53,7 +53,7 @@ const BreedsPage = ({ contentType }) => {
   return (
     <>
       <ActionBar
-        contentType={contentType}
+        currentPageName={currentPageName}
         allBreeds={allBreeds}
         handleBreeds={handleBreeds}
         handleLimit={handleLimit}

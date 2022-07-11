@@ -1,12 +1,12 @@
 import { useLocation } from 'react-router';
 import ActionBar from '../CatActionBar';
 import './index.scss';
-const CatPage = () => {
+const CatPage = ({ currentPageName }) => {
   const location = useLocation();
   const catInfo = location.state[0];
   return (
     <>
-      <ActionBar breedId={catInfo.id} />
+      <ActionBar breedId={catInfo.id} currentPageName={currentPageName} />
       <section className="cat-info">
         <div className="cat-picture-container">
           <img src={catInfo.image.url} alt={catInfo.name} className="cat-picture" />
