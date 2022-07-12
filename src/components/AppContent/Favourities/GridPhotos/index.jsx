@@ -1,14 +1,15 @@
 import { nanoid } from 'nanoid';
 import './index.scss';
-const GridPhotos = ({ votedImages }) => {
+
+const GridPhotos = ({ votedImages, setIdToDelete }) => {
   const gridElement = [];
   let catsImages = [];
   if (votedImages) {
     catsImages = votedImages.map((cat) => {
       return (
-        <div className="photos-picture" key={cat.image.id} data-photo-id={cat.image.id}>
+        <div className="photos-picture" key={cat.image.id} data-photo-id={cat.id}>
           <img src={cat.image.url} alt="cat" />
-          <div className="photos-hover-label icon-heart-fill"></div>
+          <div className="photos-hover-label icon-heart-fill" data-photo-id={cat.id}></div>
         </div>
       );
     });
@@ -22,7 +23,10 @@ const GridPhotos = ({ votedImages }) => {
     );
   }
 
-  const selectCat = (event) => {};
+  const selectCat = (event) => {
+    const favCatId = event.target.getAttribute('data-photo-id');
+    setIdToDelete(favCatId);
+  };
 
   return (
     <div className="photos-container" onClick={selectCat}>

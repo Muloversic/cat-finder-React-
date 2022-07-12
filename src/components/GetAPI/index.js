@@ -59,3 +59,20 @@ export const getVotedImages = async (voteType, user) => {
     console.error(e);
   }
 };
+
+export const deleteVotedImages = async (voteType, image) => {
+  try {
+    const catsData = await fetch(`https://api.thecatapi.com/v1/${voteType}/${image}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': 'bf513bac-3dbf-4809-b46a-6a3c40e1e4ad',
+      },
+    });
+    const response = await catsData.json();
+    console.log(JSON.stringify(response));
+    return response;
+  } catch (e) {
+    console.error(e);
+  }
+};
