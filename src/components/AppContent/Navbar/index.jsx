@@ -10,13 +10,13 @@ const Navbar = () => {
       </form>
       <ul className="navbar-list">
         <li className="navbar-list-item">
-          <Link to="/" className="navbar-list-link icon-smile" />
+          <Link to="/likes" className="navbar-list-link icon-smile" />
         </li>
         <li className="navbar-list-item">
-          <Link to="/" className="navbar-list-link icon-heart" />
+          <Link to="/favourites" className="navbar-list-link icon-heart" />
         </li>
         <li className="navbar-list-item">
-          <Link to="/" className="navbar-list-link icon-sad-face" />
+          <Link to="/dislikes" className="navbar-list-link icon-sad-face" />
         </li>
       </ul>
     </nav>
