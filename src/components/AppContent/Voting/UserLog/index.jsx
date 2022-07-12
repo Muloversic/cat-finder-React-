@@ -16,12 +16,6 @@ const UserLog = ({ userAction }) => {
         </div>
       );
     }
-
-	if(userAction.length > 5){
-		
-	}
-
-    console.log(userAction.length);
   });
 
   return logs;
