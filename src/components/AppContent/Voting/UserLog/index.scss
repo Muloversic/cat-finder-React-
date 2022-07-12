@@ -1,7 +1,14 @@
 .user-log {
   display: flex;
   justify-content: space-between;
-  margin-top: 70px;
+  margin-top: 20px;
+  background: #f8f8f7;
+  border-radius: 10px;
+  padding: 18px 0;
+  &:first-of-type {
+    margin-top: 70px;
+  }
+
   &-text {
     display: flex;
   }
@@ -26,7 +33,18 @@
   }
 
   .log-icon {
-    color: #ff868e;
     font-size: 20px;
+  }
+
+  .log-icon.icon-heart {
+    color: #ff868e;
+  }
+
+  .log-icon.icon-smile {
+    color: #97eab9;
+  }
+  
+  .log-icon.icon-sad-face {
+    color: #ffd280;
   }
 }

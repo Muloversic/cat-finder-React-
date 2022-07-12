@@ -12,6 +12,14 @@ const VotingPage = ({ currentPageName }) => {
     image_id: '',
     sub_id: '',
   });
+  const [userAction, setUserAction] = useState([
+    {
+      time: [],
+      imageId: '',
+      voteDir: '',
+      iconClass: '',
+    },
+  ]);
 
   useEffect(() => {
     (async () => {
@@ -31,20 +39,53 @@ const VotingPage = ({ currentPageName }) => {
     const like = [...event.target.classList].includes('like');
     const dislike = [...event.target.classList].includes('dislike');
     const favour = [...event.target.classList].includes('favour');
+    if (userAction.length > 4) {
+      setUserAction((prevAction) => {
+        prevAction.shift();
+        return [...prevAction];
+      });
+    }
 
     if (like) {
       setVoteType('votes');
       setVoteBodyRequest({ image_id: image.id, sub_id: subId, value: 1 });
+      setUserAction((prevAction) => [
+        ...prevAction,
+        {
+          time: [new Date().getHours(), new Date().getMinutes()],
+          imageId: image.id,
+          voteDir: 'Likes',
+          iconClass: 'icon-smile',
+        },
+      ]);
     }
 
     if (dislike) {
       setVoteType('votes');
       setVoteBodyRequest({ image_id: image.id, sub_id: subId, value: 0 });
+      setUserAction((prevAction) => [
+        ...prevAction,
+        {
+          time: [new Date().getHours(), new Date().getMinutes()],
+          imageId: image.id,
+          voteDir: 'Dislikes',
+          iconClass: 'icon-sad-face',
+        },
+      ]);
     }
 
     if (favour) {
       setVoteType('favourites ');
       setVoteBodyRequest({ image_id: image.id, sub_id: subId });
+      setUserAction((prevAction) => [
+        ...prevAction,
+        {
+          time: [new Date().getHours(), new Date().getMinutes()],
+          imageId: image.id,
+          voteDir: 'Favourites',
+          iconClass: 'icon-heart',
+        },
+      ]);
     }
   };
 
@@ -68,7 +109,7 @@ const VotingPage = ({ currentPageName }) => {
           </div>
         </div>
       </section>
-      <UserLog />
+      <UserLog userAction={userAction} />
     </section>
   );
 };

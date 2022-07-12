@@ -1,15 +1,29 @@
 import './index.scss';
-const UserLog = () => {
-  return (
-    <div className="user-log">
-      <div className="user-log-text">
-        <span className="log-time">22:35</span>
-        <p className="log-text">
-          Image ID: <span>fQSunHvl8</span> was added to Favourites
-        </p>
-      </div>
-      <span className="log-icon icon-heart"></span>
-    </div>
-  );
+const UserLog = ({ userAction }) => {
+  const logs = userAction.map((action) => {
+    if (action.imageId) {
+      return (
+        <div className="user-log" key={action.imageId}>
+          <div className="user-log-text">
+            <span className="log-time">
+              {action.time[0]}:{action.time[1]}
+            </span>
+            <p className="log-text">
+              Image ID: <span>{action.imageId}</span> was added to {action.voteDir}
+            </p>
+          </div>
+          <span className={`log-icon ${action.iconClass}`}></span>
+        </div>
+      );
+    }
+
+	if(userAction.length > 5){
+		
+	}
+
+    console.log(userAction.length);
+  });
+
+  return logs;
 };
 export default UserLog;
