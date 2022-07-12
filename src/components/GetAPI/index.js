@@ -44,3 +44,13 @@ export const sendVotedImage = async (body, voteType) => {
     console.error(e);
   }
 };
+
+export const getVotedImages = async (voteType) => {
+  try {
+    const catsData = await fetch(`https://api.thecatapi.com/v1/${voteType}?sub_id=Muloversic`);
+    const response = await catsData.json();
+    return response;
+  } catch (e) {
+    console.error(e);
+  }
+};

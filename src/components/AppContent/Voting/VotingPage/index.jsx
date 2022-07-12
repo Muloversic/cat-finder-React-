@@ -3,10 +3,10 @@ import ActionBar from '../ActionBar';
 import UserLog from '../UserLog';
 import { getRandomImage, sendVotedImage } from '../../../GetAPI';
 import './index.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, subId } from 'react';
 const VotingPage = ({ currentPageName }) => {
   const [randomImage, setRandomImage] = useState(null);
-  const [subId, setSubId] = useState('Muloversic');
+
   const [voteType, setVoteType] = useState('');
   const [voteBodyRequest, setVoteBodyRequest] = useState({
     image_id: '',

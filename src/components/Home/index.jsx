@@ -6,10 +6,12 @@ import DefaultScreen from '../AppContent/DefaultScreen';
 import BreedsPage from '../AppContent/Breeds//BreedsPage';
 import CatPage from '../AppContent/Breeds//CatPage';
 import VotingPage from '../AppContent/Voting/VotingPage';
+import FavouritesPage from '../AppContent/Favourities/FavouritiesPage';
 import './index.scss';
 
 const Home = () => {
   const [currentPageName, setCurrentPageName] = useState('default');
+  const [subId, setSubId] = useState('Muloversic');
   const location = useLocation();
   useEffect(() => {
     const pageName = location.pathname.split('/')[1];
@@ -25,7 +27,8 @@ const Home = () => {
           <Route index element={<BreedsPage currentPageName={currentPageName} />} />
           <Route path=":breedsId" element={<CatPage currentPageName={currentPageName} />} />
         </Route>
-        <Route path="voting" element={<VotingPage currentPageName={currentPageName} />} />
+        <Route path="voting" element={<VotingPage currentPageName={currentPageName} subId={subId} />} />
+        <Route path="favourites" element={<FavouritesPage currentPageName={currentPageName} subId={subId} />} />
       </Routes>
     </div>
   );
