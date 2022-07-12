@@ -45,9 +45,14 @@ export const sendVotedImage = async (body, voteType) => {
   }
 };
 
-export const getVotedImages = async (voteType) => {
+export const getVotedImages = async (voteType, user) => {
   try {
-    const catsData = await fetch(`https://api.thecatapi.com/v1/${voteType}?sub_id=Muloversic`);
+    const catsData = await fetch(`https://api.thecatapi.com/v1/${voteType}?sub_id=${user}`, {
+      method: 'GET',
+      headers: {
+        'x-api-key': 'bf513bac-3dbf-4809-b46a-6a3c40e1e4ad',
+      },
+    });
     const response = await catsData.json();
     return response;
   } catch (e) {
