@@ -5,9 +5,6 @@
   background: #f8f8f7;
   border-radius: 10px;
   padding: 18px 0;
-  &:first-of-type {
-    margin-top: 70px;
-  }
 
   &-text {
     display: flex;
@@ -43,7 +40,7 @@
   .log-icon.icon-smile {
     color: #97eab9;
   }
-  
+
   .log-icon.icon-sad-face {
     color: #ffd280;
   }
