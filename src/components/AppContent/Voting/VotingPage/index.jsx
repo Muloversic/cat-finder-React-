@@ -1,6 +1,6 @@
 import Navbar from '../../Navbar';
 import ActionBar from '../ActionBar';
-import UserLog from '../UserLog';
+import UserLog from '../../UserLog';
 import { getRandomImage, sendVotedImage } from '../../../GetAPI';
 import './index.scss';
 import { useEffect, useState } from 'react';
