@@ -14,4 +14,11 @@ body {
 .content {
   max-height: 840px;
   width: 682px;
+  position: relative;
+  &-loader {
+    position: absolute;
+    top: -200%;
+    left: 50%;
+    transform: translate(-50%, 200%);
+  }
 }

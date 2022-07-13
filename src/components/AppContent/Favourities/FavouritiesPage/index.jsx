@@ -5,9 +5,11 @@ import UserLog from '../../UserLog';
 import NoItemsFound from '../../NoItemsFound';
 import { getVotedImages, deleteVotedImages } from '../../../GetAPI';
 import { useEffect, useState } from 'react';
+import { TailSpin } from 'react-loader-spinner';
 const FavouritesPage = ({ currentPageName, subId }) => {
   const [votedImages, setVotedImages] = useState([]);
   const [idToDelete, setIdToDelete] = useState('');
+  const [isShowLoad, setIsShowLoad] = useState(true);
   const [userAction, setUserAction] = useState([
     {
       time: [],
@@ -16,7 +18,10 @@ const FavouritesPage = ({ currentPageName, subId }) => {
       voteAction: '',
     },
   ]);
+
+  console.log('not mounted');
   useEffect(() => {
+    console.log(' mounted');
     if (idToDelete) {
       (async () => await deleteVotedImages('favourites', idToDelete))();
       (async () => {
@@ -45,6 +50,7 @@ const FavouritesPage = ({ currentPageName, subId }) => {
     (async () => {
       const catsImages = await getVotedImages('favourites', subId);
       setVotedImages(catsImages);
+      setIsShowLoad(false);
     })();
   }, [idToDelete]);
 
@@ -53,10 +59,15 @@ const FavouritesPage = ({ currentPageName, subId }) => {
       <Navbar />
       <ActionBar currentPageName={currentPageName} />
       <section className="favourites favourites-section content">
-        {votedImages.length === 0 ? (
+        {isShowLoad && (
+          <TailSpin height="100" width="100" color="#ff868e4c" ariaLabel="loading" wrapperClass="content-loader" />
+        )}
+        {votedImages.length === 0 && !isShowLoad ? (
           <NoItemsFound />
         ) : (
-          <GridPhotos votedImages={votedImages} setIdToDelete={setIdToDelete} />
+          <>
+            <GridPhotos votedImages={votedImages} setIdToDelete={setIdToDelete} />
+          </>
         )}
       </section>
       <UserLog userAction={userAction} />
