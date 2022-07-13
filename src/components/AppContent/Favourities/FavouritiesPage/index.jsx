@@ -14,10 +14,9 @@ const FavouritesPage = ({ currentPageName, subId }) => {
         setVotedImages(catsImages);
       })();
     }
-	
+
     (async () => {
       const catsImages = await getVotedImages('favourites', subId);
-      console.log('delete', catsImages);
       setVotedImages(catsImages);
     })();
   }, [idToDelete]);
