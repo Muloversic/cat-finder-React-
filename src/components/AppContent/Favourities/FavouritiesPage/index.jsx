@@ -48,7 +48,6 @@ const FavouritesPage = ({ currentPageName, subId }) => {
     })();
   }, [idToDelete]);
 
-  console.log(votedImages);
   return (
     <div className="favourites-page content">
       <Navbar />
