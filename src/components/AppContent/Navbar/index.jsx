@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './index.scss';
 const Navbar = () => {
@@ -10,13 +10,13 @@ const Navbar = () => {
       </form>
       <ul className="navbar-list">
         <li className="navbar-list-item">
-          <Link to="/likes" className="navbar-list-link icon-smile" />
+          <NavLink to="/likes" className="navbar-list-link icon-smile" />
         </li>
         <li className="navbar-list-item">
-          <Link to="/favourites" className="navbar-list-link icon-heart" />
+          <NavLink to="/favourites" className="navbar-list-link icon-heart" />
         </li>
         <li className="navbar-list-item">
-          <Link to="/dislikes" className="navbar-list-link icon-sad-face" />
+          <NavLink to="/dislikes" className="navbar-list-link icon-sad-face" />
         </li>
       </ul>
     </nav>
