@@ -9,7 +9,7 @@ const UserLog = ({ userAction }) => {
               {action.time[0]}:{action.time[1]}
             </span>
             <p className="log-text">
-              Image ID: <span>{action.imageId}</span> was added to {action.voteDir}
+              Image ID: <span>{action.imageId}</span> was {action.voteAction} {action.voteDir}
             </p>
           </div>
           <span className={`log-icon ${action.iconClass}`}></span>

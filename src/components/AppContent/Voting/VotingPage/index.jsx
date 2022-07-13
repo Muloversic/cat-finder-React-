@@ -17,6 +17,7 @@ const VotingPage = ({ currentPageName, subId }) => {
       time: [],
       imageId: '',
       voteDir: '',
+      voteAction: '',
       iconClass: '',
     },
   ]);
@@ -55,6 +56,7 @@ const VotingPage = ({ currentPageName, subId }) => {
           time: [new Date().getHours(), new Date().getMinutes()],
           imageId: image.id,
           voteDir: 'Likes',
+          voteAction: 'added to',
           iconClass: 'icon-smile',
         },
       ]);
@@ -69,6 +71,7 @@ const VotingPage = ({ currentPageName, subId }) => {
           time: [new Date().getHours(), new Date().getMinutes()],
           imageId: image.id,
           voteDir: 'Dislikes',
+          voteAction: 'added to',
           iconClass: 'icon-sad-face',
         },
       ]);
@@ -83,6 +86,7 @@ const VotingPage = ({ currentPageName, subId }) => {
           time: [new Date().getHours(), new Date().getMinutes()],
           imageId: image.id,
           voteDir: 'Favourites',
+          voteAction: 'added to',
           iconClass: 'icon-heart',
         },
       ]);

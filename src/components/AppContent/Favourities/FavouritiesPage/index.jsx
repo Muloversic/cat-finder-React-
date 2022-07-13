@@ -12,6 +12,7 @@ const FavouritesPage = ({ currentPageName, subId }) => {
       time: [],
       imageId: '',
       voteDir: '',
+      voteAction: '',
     },
   ]);
   useEffect(() => {
@@ -35,6 +36,7 @@ const FavouritesPage = ({ currentPageName, subId }) => {
           time: [new Date().getHours(), new Date().getMinutes()],
           imageId: idToDelete,
           voteDir: 'Favourites',
+          voteAction: 'deleted from',
         },
       ]);
     }
