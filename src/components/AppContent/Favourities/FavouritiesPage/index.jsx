@@ -2,6 +2,7 @@ import Navbar from '../../Navbar';
 import ActionBar from '../ActionBar';
 import GridPhotos from '../GridPhotos';
 import UserLog from '../../UserLog';
+import NoItemsFound from '../../NoItemsFound';
 import { getVotedImages, deleteVotedImages } from '../../../GetAPI';
 import { useEffect, useState } from 'react';
 const FavouritesPage = ({ currentPageName, subId }) => {
@@ -46,12 +47,18 @@ const FavouritesPage = ({ currentPageName, subId }) => {
       setVotedImages(catsImages);
     })();
   }, [idToDelete]);
+
+  console.log(votedImages);
   return (
     <div className="favourites-page content">
       <Navbar />
       <ActionBar currentPageName={currentPageName} />
       <section className="favourites favourites-section content">
-        <GridPhotos votedImages={votedImages} setIdToDelete={setIdToDelete} />
+        {votedImages.length === 0 ? (
+          <NoItemsFound />
+        ) : (
+          <GridPhotos votedImages={votedImages} setIdToDelete={setIdToDelete} />
+        )}
       </section>
       <UserLog userAction={userAction} />
     </div>
