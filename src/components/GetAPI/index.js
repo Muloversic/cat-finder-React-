@@ -76,3 +76,30 @@ export const deleteVotedImages = async (voteType, image) => {
     console.error(e);
   }
 };
+
+export const getImageById = async (id) => {
+  try {
+    const image = await fetch(`https://api.thecatapi.com/v1/images/${id}`);
+    const response = await image.json();
+    return response;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const deleteImageById = async (id) => {
+  try {
+    const image = await fetch(`https://api.thecatapi.com/v1/votes/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': 'bf513bac-3dbf-4809-b46a-6a3c40e1e4ad',
+      },
+    });
+    const response = await image.json();
+    console.log(JSON.stringify(response));
+    return response;
+  } catch (e) {
+    console.error(e);
+  }
+};

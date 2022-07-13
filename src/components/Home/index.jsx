@@ -7,6 +7,7 @@ import BreedsPage from '../AppContent/Breeds//BreedsPage';
 import CatPage from '../AppContent/Breeds//CatPage';
 import VotingPage from '../AppContent/Voting/VotingPage';
 import FavouritesPage from '../AppContent/Favourities/FavouritiesPage';
+import LikesPage from '../AppContent/Likes/LikesPage';
 import './index.scss';
 
 const Home = () => {
@@ -29,6 +30,7 @@ const Home = () => {
         </Route>
         <Route path="voting" element={<VotingPage currentPageName={currentPageName} subId={subId} />} />
         <Route path="favourites" element={<FavouritesPage currentPageName={currentPageName} subId={subId} />} />
+        <Route path="likes" element={<LikesPage currentPageName={currentPageName} subId={subId} />} />
       </Routes>
     </div>
   );
