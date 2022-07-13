@@ -3,8 +3,8 @@ import ActionBar from '../ActionBar';
 import UserLog from '../UserLog';
 import { getRandomImage, sendVotedImage } from '../../../GetAPI';
 import './index.scss';
-import { useEffect, useState, subId } from 'react';
-const VotingPage = ({ currentPageName }) => {
+import { useEffect, useState } from 'react';
+const VotingPage = ({ currentPageName, subId }) => {
   const [randomImage, setRandomImage] = useState(null);
 
   const [voteType, setVoteType] = useState('');
@@ -75,7 +75,7 @@ const VotingPage = ({ currentPageName }) => {
     }
 
     if (favour) {
-      setVoteType('favourites ');
+      setVoteType('favourites');
       setVoteBodyRequest({ image_id: image.id, sub_id: subId });
       setUserAction((prevAction) => [
         ...prevAction,
