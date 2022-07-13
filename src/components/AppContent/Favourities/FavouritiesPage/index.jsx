@@ -7,7 +7,14 @@ const FavouritesPage = ({ currentPageName, subId }) => {
   const [votedImages, setVotedImages] = useState([]);
   const [idToDelete, setIdToDelete] = useState('');
   useEffect(() => {
-    if (idToDelete) (async () => await deleteVotedImages('favourites', idToDelete))();
+    if (idToDelete) {
+      (async () => await deleteVotedImages('favourites', idToDelete))();
+      (async () => {
+        const catsImages = await getVotedImages('favourites', subId);
+        setVotedImages(catsImages);
+      })();
+    }
+	
     (async () => {
       const catsImages = await getVotedImages('favourites', subId);
       console.log('delete', catsImages);
