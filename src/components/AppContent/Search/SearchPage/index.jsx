@@ -6,14 +6,16 @@ import { getVotedImages, getImageById } from '../../../GetAPI';
 import { useEffect, useState } from 'react';
 import { TailSpin } from 'react-loader-spinner';
 import './index.scss';
-const SearchPage = ({ currentPageName, subId }) => {
+import { useLocation } from 'react-router';
+const SearchPage = ({ currentPageName }) => {
   const [searchedImages, setSearchedImages] = useState([]);
-  const [isShowLoad, setSsShowLoad] = useState(true);
-  const [searchRes, setSearchRes] = useState();
+  const [isShowLoad, setIsShowLoad] = useState(true);
+  const location = useLocation();
+  const searchRes = location.state;
 
   return (
     <div className="search-page content">
-      <Navbar setSearchRes={setSearchRes}/>
+      <Navbar />
       <ActionBar currentPageName={currentPageName} />
       <section className="search search-section content">
         <p className="search-result">

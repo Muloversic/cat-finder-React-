@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import './index.scss';
-const Navbar = ({ setSearchRes }) => {
+const Navbar = () => {
   const [inputData, setInputData] = useState('');
   const navigate = useNavigate();
   const handleSearch = (e) => {
@@ -11,8 +11,7 @@ const Navbar = ({ setSearchRes }) => {
 
   const sendInputData = (e) => {
     e.preventDefault();
-    setSearchRes(inputData);
-    navigate('/search');
+    navigate('/search', { state: inputData });
   };
 
   return (
