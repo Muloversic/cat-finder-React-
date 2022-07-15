@@ -103,3 +103,13 @@ export const deleteImageById = async (id) => {
     console.error(e);
   }
 };
+
+export const getBreedByName = async (breed) => {
+  try {
+    const catsData = await fetch(`https://api.thecatapi.com/v1/breeds/search?q=${breed}`);
+    const response = await catsData.json();
+    return response;
+  } catch (e) {
+    console.error(e);
+  }
+};
