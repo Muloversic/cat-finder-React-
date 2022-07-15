@@ -25,6 +25,7 @@ const LikesPage = ({ currentPageName, subId }) => {
       catsImagesInfo.forEach(async (catImage) => {
         if (catImage.value === 1) {
           const getImage = await getImageById(catImage.image_id);
+          if (getImage.breeds) delete getImage.breeds;
           setVotedImages((prevImages) => {
             return [...prevImages, { ...getImage, vote_id: catImage.id }];
           });
@@ -45,6 +46,7 @@ const LikesPage = ({ currentPageName, subId }) => {
           for (let catImage of catsImagesInfo) {
             if (catImage.value === 1) {
               const getImage = await getImageById(catImage.image_id);
+              if (getImage.breeds) delete getImage.breeds;
               likedImages.push({ ...getImage, vote_id: catImage.id });
             }
           }
