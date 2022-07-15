@@ -28,10 +28,10 @@ const DislikesPage = ({ currentPageName, subId }) => {
           setVotedImages((prevImages) => {
             return [...prevImages, { ...getImage, vote_id: catImage.id }];
           });
-
-          setIsShowLoad(false);
         }
       });
+
+      setIsShowLoad(false);
     })();
   }, []);
 
