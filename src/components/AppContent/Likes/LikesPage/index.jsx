@@ -4,12 +4,11 @@ import GridPhotos from '../GridPhotos';
 import UserLog from '../../UserLog';
 import NoItemsFound from '../../NoItemsFound';
 import { getVotedImages, deleteImageById, getImageById } from '../../../GetAPI';
-import { removeDuplicates } from '../../../Utilities/removeDuplicatObjFromArr';
 import { useEffect, useState } from 'react';
 import { TailSpin } from 'react-loader-spinner';
 const LikesPage = ({ currentPageName, subId }) => {
   const [votedImages, setVotedImages] = useState([]);
-  const [idToDelete, setIdToDelete] = useState('');
+  const [idToDelete, setIdToDelete] = useState(0);
   const [isShowLoad, setIsShowLoad] = useState(true);
   const [userAction, setUserAction] = useState([
     {
@@ -21,51 +20,57 @@ const LikesPage = ({ currentPageName, subId }) => {
   ]);
 
   useEffect(() => {
-    if (idToDelete) {
-      (async () => await deleteImageById(idToDelete))();
-      //   (async () => {
-      //     const catsImagesInfo = await getVotedImages('votes', subId);
-      //     catsImagesInfo.forEach(async (catImage) => {
-      //       const getImage = await getImageById(catImage.image_id);
-      //       setVotedImages((prevImages) => {
-      //         return [...prevImages, { ...getImage, vote_id: catImage.id }];
-      //       });
-      //     });
-
-      //     setIsShowLoad(false);
-      //   })();
-
-      if (userAction.length > 4) {
-        setUserAction((prevAction) => {
-          prevAction.shift();
-          return [...prevAction];
-        });
-      }
-
-      setUserAction((prevAction) => [
-        ...prevAction,
-        {
-          time: [new Date().getHours(), new Date().getMinutes()],
-          imageId: idToDelete,
-          voteDir: 'Favourites',
-          voteAction: 'deleted from',
-        },
-      ]);
-    }
-
     (async () => {
       const catsImagesInfo = await getVotedImages('votes', subId);
       catsImagesInfo.forEach(async (catImage) => {
-        const getImage = await getImageById(catImage.image_id);
-        setVotedImages((prevImages) => {
-          return [...prevImages, { ...getImage, vote_id: catImage.id }];
-        });
+        if (catImage.value === 1) {
+          const getImage = await getImageById(catImage.image_id);
+          setVotedImages((prevImages) => {
+            return [...prevImages, { ...getImage, vote_id: catImage.id }];
+          });
+
+          setIsShowLoad(false);
+        }
       });
-
-      setIsShowLoad(false);
     })();
-  }, [idToDelete]);
+  }, []);
 
+  useEffect(() => {
+    if (idToDelete) {
+      (async () => {
+        const isDelted = await deleteImageById(idToDelete);
+        if (isDelted.message === 'SUCCESS') {
+          const catsImagesInfo = await getVotedImages('votes', subId);
+          const likedImages = [];
+          for (let catImage of catsImagesInfo) {
+            if (catImage.value === 1) {
+              const getImage = await getImageById(catImage.image_id);
+              likedImages.push({ ...getImage, vote_id: catImage.id });
+            }
+          }
+
+          setVotedImages(likedImages);
+
+          if (userAction.length > 4) {
+            setUserAction((prevAction) => {
+              prevAction.shift();
+              return [...prevAction];
+            });
+          }
+
+          setUserAction((prevAction) => [
+            ...prevAction,
+            {
+              time: [new Date().getHours(), new Date().getMinutes()],
+              imageId: idToDelete,
+              voteDir: 'likes',
+              voteAction: 'deleted from',
+            },
+          ]);
+        }
+      })();
+    }
+  }, [idToDelete]);
   return (
     <div className="favourites-page content">
       <Navbar />
@@ -77,7 +82,7 @@ const LikesPage = ({ currentPageName, subId }) => {
         {votedImages.length === 0 && !isShowLoad ? (
           <NoItemsFound />
         ) : (
-          <GridPhotos votedImages={removeDuplicates(votedImages)} setIdToDelete={setIdToDelete} />
+          <GridPhotos votedImages={votedImages} setIdToDelete={setIdToDelete} />
         )}
       </section>
       <UserLog userAction={userAction} />

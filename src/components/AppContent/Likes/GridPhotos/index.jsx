@@ -1,11 +1,12 @@
 import { nanoid } from 'nanoid';
 import './index.scss';
+import { removeDuplicates } from '../../../Utilities/removeDuplicatObjFromArr';
 
 const GridPhotos = ({ votedImages, setIdToDelete }) => {
   const gridElement = [];
   let catsImages = [];
   if (votedImages) {
-    catsImages = votedImages.map((cat) => {
+    catsImages = removeDuplicates(votedImages).map((cat) => {
       return (
         <div className="photos-picture" key={cat.id} data-photo-id={cat.vote_id}>
           <img src={cat.url} alt="cat" />
