@@ -19,9 +19,7 @@ const FavouritesPage = ({ currentPageName, subId }) => {
     },
   ]);
 
-  console.log('not mounted');
   useEffect(() => {
-    console.log(' mounted');
     if (idToDelete) {
       (async () => await deleteVotedImages('favourites', idToDelete))();
       (async () => {
