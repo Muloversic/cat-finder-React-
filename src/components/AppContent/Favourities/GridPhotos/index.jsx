@@ -1,5 +1,4 @@
 import { nanoid } from 'nanoid';
-import './index.scss';
 
 const GridPhotos = ({ votedImages, setIdToDelete }) => {
   const gridElement = [];

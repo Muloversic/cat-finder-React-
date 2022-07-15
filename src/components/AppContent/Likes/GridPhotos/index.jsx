@@ -1,5 +1,4 @@
 import { nanoid } from 'nanoid';
-import './index.scss';
 import { removeDuplicates } from '../../../Utilities/removeDuplicatObjFromArr';
 
 const GridPhotos = ({ votedImages, setIdToDelete }) => {
