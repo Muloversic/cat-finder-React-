@@ -63,7 +63,7 @@ const DislikesPage = ({ currentPageName, subId }) => {
             {
               time: [new Date().getHours(), new Date().getMinutes()],
               imageId: idToDelete,
-              voteDir: 'likes',
+              voteDir: 'dislikes',
               voteAction: 'deleted from',
             },
           ]);
@@ -72,10 +72,10 @@ const DislikesPage = ({ currentPageName, subId }) => {
     }
   }, [idToDelete]);
   return (
-    <div className="favourites-page content">
+    <div className="dislikes-page content">
       <Navbar />
       <ActionBar currentPageName={currentPageName} />
-      <section className="favourites favourites-section content">
+      <section className="dislikes dislikes-section content">
         {isShowLoad && (
           <TailSpin height="100" width="100" color="#ff868e4c" ariaLabel="loading" wrapperClass="content-loader" />
         )}

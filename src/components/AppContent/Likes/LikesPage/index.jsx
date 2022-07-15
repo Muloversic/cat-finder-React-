@@ -72,10 +72,10 @@ const LikesPage = ({ currentPageName, subId }) => {
     }
   }, [idToDelete]);
   return (
-    <div className="favourites-page content">
+    <div className="likes-page content">
       <Navbar />
       <ActionBar currentPageName={currentPageName} />
-      <section className="favourites favourites-section content">
+      <section className="likes likes-section content">
         {isShowLoad && (
           <TailSpin height="100" width="100" color="#ff868e4c" ariaLabel="loading" wrapperClass="content-loader" />
         )}
