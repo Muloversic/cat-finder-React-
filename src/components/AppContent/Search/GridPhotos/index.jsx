@@ -6,15 +6,16 @@ const GridPhotos = ({ searchedBreedRes }) => {
 
   if (searchedBreedRes) {
     catsImages = searchedBreedRes.map((cat) => {
-      console.log(cat);
-      return (
-        <div className="photos-picture" key={cat.image.id} data-photo-id={cat.image.id}>
-          <img src={cat.image.url} alt="cat" />
-          <div className="photos-hover-label" data-photo-id={cat.image.id}>
-            {cat.name}
+      if (cat.image) {
+        return (
+          <div className="photos-picture" key={cat.image.id} data-photo-id={cat.image.id}>
+            <img src={cat.image.url} alt="cat" />
+            <div className="photos-hover-label" data-photo-id={cat.image.id}>
+              {cat.name}
+            </div>
           </div>
-        </div>
-      );
+        );
+      }
     });
   }
 
