@@ -2,16 +2,33 @@ import Navbar from '../../Navbar';
 import ActionBar from '../ActionBar';
 import GridPhotos from '../GridPhotos';
 import NoItemsFound from '../../NoItemsFound';
-import { getVotedImages, getImageById } from '../../../GetAPI';
+import { getBreedByName, getAllBreeds } from '../../../GetAPI';
 import { useEffect, useState } from 'react';
 import { TailSpin } from 'react-loader-spinner';
+import { removeDuplicates } from '../../../Utilities/removeDuplicatObjFromArr';
 import './index.scss';
 import { useLocation } from 'react-router';
 const SearchPage = ({ currentPageName }) => {
-  const [searchedImages, setSearchedImages] = useState([]);
+  const [searchedBreedRes, setSearchedBreedRes] = useState([]);
   const [isShowLoad, setIsShowLoad] = useState(true);
   const location = useLocation();
   const searchRes = location.state;
+
+  useEffect(() => {
+    (async () => {
+      const searchedBreedByName = await getBreedByName(searchRes);
+      const allBreeds = await getAllBreeds();
+      const searchedBreeds = searchedBreedByName.map((serchedBreed) =>
+        allBreeds.filter((breed) => breed.id === serchedBreed.id)
+      );
+
+      const neededBreeds = [];
+      searchedBreeds.forEach((breed) => neededBreeds.push(...breed));
+
+      setSearchedBreedRes(neededBreeds);
+      setIsShowLoad(false);
+    })();
+  }, [searchRes]);
 
   return (
     <div className="search-page content">
@@ -24,7 +41,11 @@ const SearchPage = ({ currentPageName }) => {
         {isShowLoad && (
           <TailSpin height="100" width="100" color="#ff868e4c" ariaLabel="loading" wrapperClass="content-loader" />
         )}
-        {searchedImages.length === 0 && !isShowLoad ? <NoItemsFound /> : <GridPhotos searchedImages={searchedImages} />}
+        {searchedBreedRes.length === 0 && !isShowLoad ? (
+          <NoItemsFound />
+        ) : (
+          <GridPhotos searchedBreedRes={searchedBreedRes} />
+        )}
       </section>
     </div>
   );

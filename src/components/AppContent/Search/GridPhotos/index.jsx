@@ -1,15 +1,18 @@
 import { nanoid } from 'nanoid';
-import { removeDuplicates } from '../../../Utilities/removeDuplicatObjFromArr';
 
-const GridPhotos = ({ searchedImages, setIdToDelete }) => {
+const GridPhotos = ({ searchedBreedRes }) => {
   const gridElement = [];
   let catsImages = [];
-  if (searchedImages) {
-    catsImages = removeDuplicates(searchedImages).map((cat) => {
+
+  if (searchedBreedRes) {
+    catsImages = searchedBreedRes.map((cat) => {
+      console.log(cat);
       return (
-        <div className="photos-picture" key={cat.id} data-photo-id={cat.vote_id}>
-          <img src={cat.url} alt="cat" />
-          <div className="photos-hover-label icon-heart-fill" data-photo-id={cat.vote_id}></div>
+        <div className="photos-picture" key={cat.image.id} data-photo-id={cat.image.id}>
+          <img src={cat.image.url} alt="cat" />
+          <div className="photos-hover-label" data-photo-id={cat.image.id}>
+            {cat.name}
+          </div>
         </div>
       );
     });
@@ -25,7 +28,6 @@ const GridPhotos = ({ searchedImages, setIdToDelete }) => {
 
   const selectCat = (event) => {
     const favCatId = event.target.getAttribute('data-photo-id');
-    setIdToDelete(favCatId);
   };
 
   return (
