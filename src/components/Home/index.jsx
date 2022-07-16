@@ -12,6 +12,7 @@ import DislikesPage from '../AppContent/Dislikes/DislikesPage';
 import SearchPage from '../AppContent/Search/SearchPage';
 import SharedSearchPage from '../AppContent/Search/SharedSearchPage';
 import SearchedCatPage from '../AppContent/Search/SearchedCatPage';
+import GallaeryPage from '../AppContent/Gallery/GalleryPage';
 import './index.scss';
 
 const Home = () => {
@@ -40,6 +41,7 @@ const Home = () => {
           <Route index element={<SearchPage currentPageName={currentPageName} />} />
           <Route path=":breedsId" element={<SearchedCatPage currentPageName={currentPageName} />} />
         </Route>
+        <Route path="gallery" element={<GallaeryPage currentPageName={currentPageName} subId={subId} />} />
       </Routes>
     </div>
   );
