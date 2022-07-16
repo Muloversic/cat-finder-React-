@@ -1,6 +1,8 @@
 import { nanoid } from 'nanoid';
+import { useNavigate } from 'react-router';
 
 const GridPhotos = ({ searchedBreedRes }) => {
+  const navigate = useNavigate();
   const gridElement = [];
   let catsImages = [];
 
@@ -28,7 +30,9 @@ const GridPhotos = ({ searchedBreedRes }) => {
   }
 
   const selectCat = (event) => {
-    const favCatId = event.target.getAttribute('data-photo-id');
+    const imageId = event.target.getAttribute('data-photo-id');
+    const selectedCat = searchedBreedRes.filter((cat) => cat.image.id === imageId);
+    navigate(imageId, { state: selectedCat });
   };
 
   return (

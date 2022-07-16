@@ -1,0 +1,24 @@
+.actionbar.actionbar-cat {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  .actionbar-heading {
+    margin-left: 15px;
+    background: #fbe0dc;
+    color: #ff868e;
+  }
+
+  .actionbar-breed-id {
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #fff;
+    background: #ff868e;
+    border-radius: 10px;
+    padding: 5px 30px;
+    margin-left: 10px;
+  }
+}

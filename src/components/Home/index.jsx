@@ -10,6 +10,8 @@ import FavouritesPage from '../AppContent/Favourities/FavouritiesPage';
 import LikesPage from '../AppContent/Likes/LikesPage';
 import DislikesPage from '../AppContent/Dislikes/DislikesPage';
 import SearchPage from '../AppContent/Search/SearchPage';
+import SharedSearchPage from '../AppContent/Search/SharedSearchPage';
+import SearchedCatPage from '../AppContent/Search/SearchedCatPage';
 import './index.scss';
 
 const Home = () => {
@@ -34,7 +36,10 @@ const Home = () => {
         <Route path="favourites" element={<FavouritesPage currentPageName={currentPageName} subId={subId} />} />
         <Route path="likes" element={<LikesPage currentPageName={currentPageName} subId={subId} />} />
         <Route path="dislikes" element={<DislikesPage currentPageName={currentPageName} subId={subId} />} />
-        <Route path="search" element={<SearchPage currentPageName={currentPageName} subId={subId} />} />
+        <Route path="search" element={<SharedSearchPage />}>
+          <Route index element={<SearchPage currentPageName={currentPageName} />} />
+          <Route path=":breedsId" element={<SearchedCatPage currentPageName={currentPageName} />} />
+        </Route>
       </Routes>
     </div>
   );

@@ -32,7 +32,6 @@ const SearchPage = ({ currentPageName }) => {
 
   return (
     <div className="search-page content">
-      <Navbar />
       <ActionBar currentPageName={currentPageName} />
       <section className="search search-section content">
         <p className="search-result">
