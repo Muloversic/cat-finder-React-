@@ -4,6 +4,7 @@ import GridPhotos from '../GridPhotos';
 import NoItemsFound from '../../NoItemsFound';
 import { getImageWithManyFiltres, getAllBreeds, sendVotedImage, getVotedImages, deleteVotedImages } from '../../../GetAPI';
 import { useEffect, useState } from 'react';
+import UserLog from '../../UserLog';
 import './index.scss';
 
 const GallaeryPage = ({ currentPageName, subId }) => {
@@ -16,6 +17,14 @@ const GallaeryPage = ({ currentPageName, subId }) => {
   const [imgToFavour, setImgToFavour] = useState('');
   const [isUserAddFavour, setIsUserAddFavour] = useState(false);
   const [isUpdateImages, setIsUpdateImages] = useState(false);
+  const [userAction, setUserAction] = useState([
+    {
+      time: [],
+      imageId: '',
+      voteDir: '',
+      voteAction: '',
+    },
+  ]);
 
   useEffect(() => {
     (async () => {
@@ -38,12 +47,37 @@ const GallaeryPage = ({ currentPageName, subId }) => {
         for (let image of favouriteImages) {
           if (image.sub_id === subId && image.image_id === imgToFavour.image_id) {
             await deleteVotedImages('favourites', image.id);
+            setUserAction((prevAction) => [
+              ...prevAction,
+              {
+                time: [new Date().getHours(), new Date().getMinutes()],
+                imageId: imgToFavour.image_id,
+                voteDir: 'favourites',
+                voteAction: 'deleted from',
+              },
+            ]);
             return;
           }
         }
 
         await sendVotedImage(imgToFavour, 'favourites');
+        setUserAction((prevAction) => [
+          ...prevAction,
+          {
+            time: [new Date().getHours(), new Date().getMinutes()],
+            imageId: imgToFavour.image_id,
+            voteDir: 'favourites',
+            voteAction: 'added to',
+          },
+        ]);
       })();
+
+      if (userAction.length > 4) {
+        setUserAction((prevAction) => {
+          prevAction.shift();
+          return [...prevAction];
+        });
+      }
     }
   }, [isUserAddFavour]);
 
@@ -90,6 +124,7 @@ const GallaeryPage = ({ currentPageName, subId }) => {
         ) : (
           <NoItemsFound />
         )}
+        <UserLog userAction={userAction} />
       </section>
     </div>
   );
