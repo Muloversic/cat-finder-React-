@@ -1,7 +1,5 @@
 import { nanoid } from 'nanoid';
-import { useNavigate } from 'react-router-dom';
-const GridPhotos = ({ searchedCatImages }) => {
-  const navigate = useNavigate();
+const GridPhotos = ({ searchedCatImages, setImgToFavour, subId, setIsUserAddFavour }) => {
   const gridElement = [];
   let catsImages = [];
 
@@ -26,9 +24,13 @@ const GridPhotos = ({ searchedCatImages }) => {
 
   const selectCat = (event) => {
     const imageId = event.target.getAttribute('data-photo-id');
-
-    // const formatedCatData = [{ ...mainInfo, image }];
-    // navigate(imageId, { state: formatedCatData });
+    const requestBody = {
+      image_id: imageId,
+      sub_id: subId,
+    };
+	
+    setIsUserAddFavour((prevValue) => !prevValue);
+    setImgToFavour(requestBody);
   };
 
   return (

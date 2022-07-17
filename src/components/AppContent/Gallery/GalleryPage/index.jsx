@@ -2,17 +2,19 @@ import Navbar from '../../Navbar';
 import ActionBar from '../ActionBar';
 import GridPhotos from '../GridPhotos';
 import NoItemsFound from '../../NoItemsFound';
-import { getImageWithManyFiltres, getAllBreeds } from '../../../GetAPI';
+import { getImageWithManyFiltres, getAllBreeds, sendVotedImage, getVotedImages, deleteVotedImages } from '../../../GetAPI';
 import { useEffect, useState } from 'react';
 import './index.scss';
 
-const GallaeryPage = ({ currentPageName }) => {
+const GallaeryPage = ({ currentPageName, subId }) => {
   const [allBreeds, setAllBreeds] = useState([]);
   const [searchedCatImages, setSearchedCatImages] = useState([]);
   const [searchLimit, setSearchLimit] = useState(5);
   const [sortOrder, setSortOred] = useState('RANDOM');
   const [imageType, setImageType] = useState('jpg,png');
   const [catBreed, setCatBreed] = useState('');
+  const [imgToFavour, setImgToFavour] = useState('');
+  const [isUserAddFavour, setIsUserAddFavour] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -27,6 +29,22 @@ const GallaeryPage = ({ currentPageName }) => {
       setSearchedCatImages(images);
     })();
   }, [sortOrder, searchLimit, imageType, catBreed]);
+
+  useEffect(() => {
+    if (imgToFavour.image_id) {
+      (async () => {
+        const favouriteImages = await getVotedImages('favourites', subId);
+        for (let image of favouriteImages) {
+          if (image.sub_id === subId && image.image_id === imgToFavour.image_id) {
+            await deleteVotedImages('favourites', image.id);
+            return;
+          }
+        }
+
+        await sendVotedImage(imgToFavour, 'favourites');
+      })();
+    }
+  }, [isUserAddFavour]);
 
   const handleBreeds = (event) => {
     setCatBreed(event.value);
@@ -56,7 +74,16 @@ const GallaeryPage = ({ currentPageName }) => {
         handleType={handleType}
       />
       <section className="gallery-section content">
-        {searchedCatImages.length > 0 ? <GridPhotos searchedCatImages={searchedCatImages} /> : <NoItemsFound />}
+        {searchedCatImages.length > 0 ? (
+          <GridPhotos
+            searchedCatImages={searchedCatImages}
+            setImgToFavour={setImgToFavour}
+            subId={subId}
+            setIsUserAddFavour={setIsUserAddFavour}
+          />
+        ) : (
+          <NoItemsFound />
+        )}
       </section>
     </div>
   );
