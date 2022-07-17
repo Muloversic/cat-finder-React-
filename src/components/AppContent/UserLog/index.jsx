@@ -1,9 +1,10 @@
 import './index.scss';
+import { nanoid } from 'nanoid';
 const UserLog = ({ userAction }) => {
   const logs = userAction.map((action) => {
     if (action.imageId) {
       return (
-        <div className="user-log" key={action.imageId}>
+        <div className="user-log" key={nanoid()}>
           <div className="user-log-text">
             <span className="log-time">
               {action.time[0]}:{action.time[1]}
