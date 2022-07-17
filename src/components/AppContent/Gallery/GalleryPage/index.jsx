@@ -102,6 +102,12 @@ const GallaeryPage = ({ currentPageName, subId }) => {
     setIsUpdateImages((prevValue) => !prevValue);
   };
 
+  const openModal = (e) => {
+    e.preventDefault();
+    document.body.classList.add('lock');
+    document.querySelector('.modal').classList.add('modal-active');
+  };
+
   return (
     <>
       <div className="gallery-page content">
@@ -114,6 +120,7 @@ const GallaeryPage = ({ currentPageName, subId }) => {
           handleOrder={handleOrder}
           handleType={handleType}
           hadnleResetImages={hadnleResetImages}
+          openModal={openModal}
         />
         <section className="gallery-section content">
           {searchedCatImages.length > 0 ? (

@@ -8,6 +8,7 @@ const ActionBar = ({
   handleOrder,
   handleType,
   hadnleResetImages,
+  openModal,
 }) => {
   const optionsBreeds = [{ value: '', label: 'All breeds' }];
   allBreeds.forEach((catInfo) => {
@@ -40,7 +41,9 @@ const ActionBar = ({
           <button className="actionbar-btn-prev  icon-arrow-left"></button>
           <h2 className="actionbar-heading">{currentPageName}</h2>
         </div>
-        <button className="actionbar-btn-upload icon-upload">UPLOAD</button>
+        <button className="actionbar-btn-upload icon-upload" onClick={openModal}>
+          UPLOAD
+        </button>
       </div>
 
       <div className="actionbar-select-block">
