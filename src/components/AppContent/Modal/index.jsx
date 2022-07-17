@@ -1,9 +1,14 @@
 import uploadImg from '../../../assets/upload.png';
 import './index.scss';
 const Modal = () => {
+  const closeModal = () => {
+    document.body.classList.remove('lock');
+    document.querySelector('.modal').classList.remove('modal-active');
+  };
+
   return (
     <div className="modal">
-      <span className="modal-btn-close icon-close"></span>
+      <span className="modal-btn-close icon-close" onClick={closeModal}></span>
       <div className="modal-header">
         <h2 className="modal-title">Upload a .jpg or .png Cat Image</h2>
         <p className="modal-text">
