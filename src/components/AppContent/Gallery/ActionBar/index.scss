@@ -10,6 +10,27 @@
     color: #ff868e;
     font-size: 20px;
     cursor: pointer;
+
+    &::after {
+      content: '';
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #ff868e;
+      border-radius: 10px;
+      width: 40px;
+      height: 40px;
+      z-index: -1;
+    }
+
+    &:hover {
+      color: #fff;
+      &::after {
+        display: block;
+      }
+    }
   }
 
   &-gallery {
