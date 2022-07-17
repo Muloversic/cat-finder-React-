@@ -14,15 +14,15 @@ const ActionBar = ({ currentPageName, allBreeds, handleBreeds, handleLimit, hand
   ];
 
   const optionsOrder = [
-    { value: 'random', label: 'Random' },
-    { value: 'Desc', label: 'Desc' },
-    { value: 'Asc', label: 'Asc' },
+    { value: 'RANDOM', label: 'Random' },
+    { value: 'DESC', label: 'Desc' },
+    { value: 'ASC', label: 'Asc' },
   ];
 
   const optionsType = [
-    { value: 'All', label: 'All' },
-    { value: 'Static', label: 'Static' },
-    { value: 'Animated', label: 'Animated' },
+    { value: 'gif,jpg,png', label: 'All' },
+    { value: 'jpg,png', label: 'Static' },
+    { value: 'gif', label: 'Animated' },
   ];
 
   return (
