@@ -113,3 +113,15 @@ export const getBreedByName = async (breed) => {
     console.error(e);
   }
 };
+
+export const getImageWithManyFiltres = async (order, limit, type, breed) => {
+  try {
+    const catsData = await fetch(
+      `https://api.thecatapi.com/v1/images/search?order=${order}&limit=${limit}&mime_types=${type}&breed_id=${breed}`
+    );
+    const response = await catsData.json();
+    return response;
+  } catch (e) {
+    console.error(e);
+  }
+};

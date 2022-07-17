@@ -2,20 +2,17 @@ import Navbar from '../../Navbar';
 import ActionBar from '../ActionBar';
 import GridPhotos from '../GridPhotos';
 import NoItemsFound from '../../NoItemsFound';
-import { getBreedByName, getAllBreeds } from '../../../GetAPI';
+import { getImageWithManyFiltres, getAllBreeds } from '../../../GetAPI';
 import { useEffect, useState } from 'react';
-import { TailSpin } from 'react-loader-spinner';
-import { removeDuplicates } from '../../../Utilities/removeDuplicatObjFromArr';
 import './index.scss';
 
 const GallaeryPage = ({ currentPageName }) => {
   const [allBreeds, setAllBreeds] = useState([]);
-  const [searchedBreedRes, setSearchedBreedRes] = useState([]);
+  const [searchedCatImages, setSearchedCatImages] = useState([]);
   const [searchLimit, setSearchLimit] = useState(5);
-  const [sortOrder, setSortOred] = useState('');
-  const [limitedCats, setLimitedCats] = useState([]);
+  const [sortOrder, setSortOred] = useState('RANDOM');
+  const [imageType, setImageType] = useState('jpg,png');
   const [catBreed, setCatBreed] = useState('');
-  const [imageType, setImageType] = useState('');
 
   useEffect(() => {
     (async () => {
@@ -23,6 +20,13 @@ const GallaeryPage = ({ currentPageName }) => {
       setAllBreeds(allBreedsName);
     })();
   }, []);
+
+  useEffect(() => {
+    (async () => {
+      const images = await getImageWithManyFiltres(sortOrder, searchLimit, imageType, catBreed);
+      setSearchedCatImages(images);
+    })();
+  }, [sortOrder, searchLimit, imageType, catBreed]);
 
   const handleBreeds = (event) => {
     setCatBreed(event.value);
@@ -35,13 +39,13 @@ const GallaeryPage = ({ currentPageName }) => {
   const handleOrder = (event) => {
     setSortOred(event.value);
   };
-  
+
   const handleType = (event) => {
     setImageType(event.value);
   };
 
   return (
-    <div className="search-page content">
+    <div className="gallery-page content">
       <Navbar />
       <ActionBar
         currentPageName={currentPageName}
@@ -51,8 +55,8 @@ const GallaeryPage = ({ currentPageName }) => {
         handleOrder={handleOrder}
         handleType={handleType}
       />
-      <section className="search search-section content">
-        <GridPhotos currentPageName={currentPageName} />
+      <section className="gallery-section content">
+        {searchedCatImages.length > 0 ? <GridPhotos searchedCatImages={searchedCatImages} /> : <NoItemsFound />}
       </section>
     </div>
   );
