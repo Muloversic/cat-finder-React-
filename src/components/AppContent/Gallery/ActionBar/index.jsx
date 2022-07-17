@@ -1,6 +1,14 @@
 import Select from 'react-select';
 import './index.scss';
-const ActionBar = ({ currentPageName, allBreeds, handleBreeds, handleLimit, handleOrder, handleType }) => {
+const ActionBar = ({
+  currentPageName,
+  allBreeds,
+  handleBreeds,
+  handleLimit,
+  handleOrder,
+  handleType,
+  hadnleResetImages,
+}) => {
   const optionsBreeds = [{ value: '', label: 'All breeds' }];
   allBreeds.forEach((catInfo) => {
     optionsBreeds.push({ value: catInfo.id, label: catInfo.name });
@@ -108,7 +116,7 @@ const ActionBar = ({ currentPageName, allBreeds, handleBreeds, handleLimit, hand
                 onChange={handleLimit}
               />
             </div>
-            <span className="actionbar-reset icon-update"></span>
+            <span className="actionbar-reset icon-update" onClick={hadnleResetImages}></span>
           </div>
         </div>
       </div>

@@ -15,6 +15,7 @@ const GallaeryPage = ({ currentPageName, subId }) => {
   const [catBreed, setCatBreed] = useState('');
   const [imgToFavour, setImgToFavour] = useState('');
   const [isUserAddFavour, setIsUserAddFavour] = useState(false);
+  const [isUpdateImages, setIsUpdateImages] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -28,7 +29,7 @@ const GallaeryPage = ({ currentPageName, subId }) => {
       const images = await getImageWithManyFiltres(sortOrder, searchLimit, imageType, catBreed);
       setSearchedCatImages(images);
     })();
-  }, [sortOrder, searchLimit, imageType, catBreed]);
+  }, [sortOrder, searchLimit, imageType, catBreed, isUpdateImages]);
 
   useEffect(() => {
     if (imgToFavour.image_id) {
@@ -62,6 +63,10 @@ const GallaeryPage = ({ currentPageName, subId }) => {
     setImageType(event.value);
   };
 
+  const hadnleResetImages = () => {
+    setIsUpdateImages((prevValue) => !prevValue);
+  };
+
   return (
     <div className="gallery-page content">
       <Navbar />
@@ -72,6 +77,7 @@ const GallaeryPage = ({ currentPageName, subId }) => {
         handleLimit={handleLimit}
         handleOrder={handleOrder}
         handleType={handleType}
+        hadnleResetImages={hadnleResetImages}
       />
       <section className="gallery-section content">
         {searchedCatImages.length > 0 ? (
