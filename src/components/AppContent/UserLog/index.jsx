@@ -7,7 +7,7 @@ const UserLog = ({ userAction }) => {
         <div className="user-log" key={nanoid()}>
           <div className="user-log-text">
             <span className="log-time">
-              {action.time[0]}:{action.time[1]}
+              {action.time[0]}:{action.time[1] < 10 ? '0' + action.time[1] : action.time[1]}
             </span>
             <p className="log-text">
               Image ID: <span>{action.imageId}</span> was {action.voteAction} {action.voteDir}
