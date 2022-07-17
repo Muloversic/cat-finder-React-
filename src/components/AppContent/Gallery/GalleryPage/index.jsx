@@ -2,9 +2,10 @@ import Navbar from '../../Navbar';
 import ActionBar from '../ActionBar';
 import GridPhotos from '../GridPhotos';
 import NoItemsFound from '../../NoItemsFound';
+import UserLog from '../../UserLog';
+import Modal from '../../Modal';
 import { getImageWithManyFiltres, getAllBreeds, sendVotedImage, getVotedImages, deleteVotedImages } from '../../../GetAPI';
 import { useEffect, useState } from 'react';
-import UserLog from '../../UserLog';
 import './index.scss';
 
 const GallaeryPage = ({ currentPageName, subId }) => {
@@ -102,31 +103,34 @@ const GallaeryPage = ({ currentPageName, subId }) => {
   };
 
   return (
-    <div className="gallery-page content">
-      <Navbar />
-      <ActionBar
-        currentPageName={currentPageName}
-        allBreeds={allBreeds}
-        handleBreeds={handleBreeds}
-        handleLimit={handleLimit}
-        handleOrder={handleOrder}
-        handleType={handleType}
-        hadnleResetImages={hadnleResetImages}
-      />
-      <section className="gallery-section content">
-        {searchedCatImages.length > 0 ? (
-          <GridPhotos
-            searchedCatImages={searchedCatImages}
-            setImgToFavour={setImgToFavour}
-            subId={subId}
-            setIsUserAddFavour={setIsUserAddFavour}
-          />
-        ) : (
-          <NoItemsFound />
-        )}
-        <UserLog userAction={userAction} />
-      </section>
-    </div>
+    <>
+      <div className="gallery-page content">
+        <Navbar />
+        <ActionBar
+          currentPageName={currentPageName}
+          allBreeds={allBreeds}
+          handleBreeds={handleBreeds}
+          handleLimit={handleLimit}
+          handleOrder={handleOrder}
+          handleType={handleType}
+          hadnleResetImages={hadnleResetImages}
+        />
+        <section className="gallery-section content">
+          {searchedCatImages.length > 0 ? (
+            <GridPhotos
+              searchedCatImages={searchedCatImages}
+              setImgToFavour={setImgToFavour}
+              subId={subId}
+              setIsUserAddFavour={setIsUserAddFavour}
+            />
+          ) : (
+            <NoItemsFound />
+          )}
+          <UserLog userAction={userAction} />
+        </section>
+      </div>
+      <Modal />
+    </>
   );
 };
 
