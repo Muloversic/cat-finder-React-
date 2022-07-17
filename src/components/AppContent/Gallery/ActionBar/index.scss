@@ -5,8 +5,8 @@
   &-reset {
     position: absolute;
     top: 50%;
-    right: 22px;
-    transform: translate(0, -37%);
+    right: -42px;
+    transform: translate(0, -14%);
     color: #ff868e;
     font-size: 20px;
     cursor: pointer;
@@ -45,6 +45,7 @@
     }
 
     .actionbar-select-wrapper--auto {
+      position: relative;
       margin-right: auto;
     }
 
