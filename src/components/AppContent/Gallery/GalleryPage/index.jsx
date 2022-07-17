@@ -7,38 +7,52 @@ import { useEffect, useState } from 'react';
 import { TailSpin } from 'react-loader-spinner';
 import { removeDuplicates } from '../../../Utilities/removeDuplicatObjFromArr';
 import './index.scss';
-import { useLocation } from 'react-router';
+
 const GallaeryPage = ({ currentPageName }) => {
+  const [allBreeds, setAllBreeds] = useState([]);
   const [searchedBreedRes, setSearchedBreedRes] = useState([]);
-  const [isShowLoad, setIsShowLoad] = useState(true);
-  const location = useLocation();
-  const searchRes = location.state;
+  const [searchLimit, setSearchLimit] = useState(5);
+  const [sortOrder, setSortOred] = useState('');
+  const [limitedCats, setLimitedCats] = useState([]);
+  const [catBreed, setCatBreed] = useState('');
+  const [imageType, setImageType] = useState('');
 
   useEffect(() => {
     (async () => {
-      const searchedBreedByName = await getBreedByName(searchRes);
-      const allBreeds = await getAllBreeds();
-      const searchedBreeds = searchedBreedByName.map((serchedBreed) =>
-        allBreeds.filter((breed) => breed.id === serchedBreed.id)
-      );
-
-      const neededBreeds = [];
-      searchedBreeds.forEach((breed) => neededBreeds.push(...breed));
-
-      setSearchedBreedRes(neededBreeds);
-      setIsShowLoad(false);
+      const allBreedsName = await getAllBreeds();
+      setAllBreeds(allBreedsName);
     })();
-  }, [searchRes]);
+  }, []);
+
+  const handleBreeds = (event) => {
+    setCatBreed(event.value);
+  };
+
+  const handleLimit = (event) => {
+    setSearchLimit(event.value);
+  };
+
+  const handleOrder = (event) => {
+    setSortOred(event.value);
+  };
+  
+  const handleType = (event) => {
+    setImageType(event.value);
+  };
 
   return (
     <div className="search-page content">
       <Navbar />
-      <ActionBar currentPageName={currentPageName} />
+      <ActionBar
+        currentPageName={currentPageName}
+        allBreeds={allBreeds}
+        handleBreeds={handleBreeds}
+        handleLimit={handleLimit}
+        handleOrder={handleOrder}
+        handleType={handleType}
+      />
       <section className="search search-section content">
-        {isShowLoad && (
-          <TailSpin height="100" width="100" color="#ff868e4c" ariaLabel="loading" wrapperClass="content-loader" />
-        )}
-        {searchedBreedRes.length === 0 && !isShowLoad ? <NoItemsFound /> : <GridPhotos />}
+        <GridPhotos currentPageName={currentPageName} />
       </section>
     </div>
   );

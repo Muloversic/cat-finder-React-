@@ -2,10 +2,9 @@ import Select from 'react-select';
 import './index.scss';
 const ActionBar = ({ currentPageName, allBreeds, handleBreeds, handleLimit, handleOrder, handleType }) => {
   const optionsBreeds = [{ value: '', label: 'All breeds' }];
-
-  //   allBreeds.forEach((catInfo) => {
-  //     optionsBreeds.push({ value: catInfo.id, label: catInfo.name });
-  //   });
+  allBreeds.forEach((catInfo) => {
+    optionsBreeds.push({ value: catInfo.id, label: catInfo.name });
+  });
 
   const optionsLimit = [
     { value: 5, label: 'Limit: 5' },
@@ -77,7 +76,7 @@ const ActionBar = ({ currentPageName, allBreeds, handleBreeds, handleLimit, hand
           <div className="actionbar-select-wrapper actionbar-select-wrapper--auto">
             <h4 className="select-title">BREED</h4>
             <Select
-              options={optionsOrder}
+              options={optionsBreeds}
               classNamePrefix="custom-select"
               defaultValue={optionsBreeds[0]}
               theme={(theme) => ({
@@ -97,7 +96,7 @@ const ActionBar = ({ currentPageName, allBreeds, handleBreeds, handleLimit, hand
               <Select
                 options={optionsLimit}
                 classNamePrefix="custom-select--short custom-select"
-                defaultValue={optionsType[1]}
+                defaultValue={optionsLimit[0]}
                 theme={(theme) => ({
                   ...theme,
                   colors: {
