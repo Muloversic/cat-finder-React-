@@ -17,6 +17,13 @@ body.lock {
   &-active {
     display: flex;
   }
+
+  &-download-img {
+    max-width: 558px;
+    max-height: 280px;
+    object-fit: cover;
+  }
+
   display: none;
   flex-direction: column;
   align-items: center;
@@ -109,6 +116,7 @@ body.lock {
   }
 
   &-btn-upload {
+    margin-top: 20px;
     background: #ff868e;
     border-radius: 10px;
     font-weight: 500;
@@ -119,5 +127,10 @@ body.lock {
     border: none;
     padding: 12px 30px;
     color: #fff;
+    cursor: pointer;
+    &:hover {
+      background: #fbe0dc;
+      color: #ff868e;
+    }
   }
 }
