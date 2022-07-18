@@ -136,7 +136,7 @@ const GallaeryPage = ({ currentPageName, subId }) => {
           <UserLog userAction={userAction} />
         </section>
       </div>
-      <Modal />
+      <Modal subId={subId}/>
     </>
   );
 };

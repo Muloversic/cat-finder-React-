@@ -125,3 +125,20 @@ export const getImageWithManyFiltres = async (order, limit, type, breed) => {
     console.error(e);
   }
 };
+
+export const postImage = async (body) => {
+  try {
+    const image = await fetch(`https://api.thecatapi.com/v1/images/upload`, {
+      method: 'POST',
+      body: body,
+      headers: {
+        'x-api-key': 'bf513bac-3dbf-4809-b46a-6a3c40e1e4ad',
+      },
+    });
+    const response = await image.json();
+    console.log(response);
+    return response;
+  } catch (e) {
+    console.error(e);
+  }
+};
