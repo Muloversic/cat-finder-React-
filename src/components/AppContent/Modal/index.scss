@@ -18,6 +18,15 @@ body.lock {
     display: flex;
   }
 
+  &-input {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    opacity: 0;
+  }
+
   &-download-img {
     max-width: 558px;
     max-height: 280px;
@@ -106,6 +115,7 @@ body.lock {
   }
 
   &-drop-info {
+    position: relative;
     font-size: 20px;
     line-height: 30px;
     color: #8c8c8c;

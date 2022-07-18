@@ -75,9 +75,9 @@ const Modal = (subId) => {
         onDragOver={(e) => dragStartHandler(e)}
         onDrop={(e) => onDropHandler(e)}
       >
-        <input type="file" className="modal-input" onChange={handleFile} />
         {userImage || (
           <p className="modal-drop-info">
+            <input type="file" className="modal-input" onChange={handleFile} />
             <span>Drag here</span> your file or <span>Click here</span> to upload
           </p>
         )}
