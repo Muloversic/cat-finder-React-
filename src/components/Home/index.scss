@@ -5,7 +5,10 @@
 }
 
 .aside {
+  position: sticky;
+  top: 0;
   flex: 0 1 44%;
+  height: 100%;
 }
 
 .default-content {
