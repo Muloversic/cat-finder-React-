@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import uploadImg from '../../../assets/upload.png';
 import { postImage } from '../../GetAPI';
+import { TailSpin } from 'react-loader-spinner';
 import './index.scss';
 const Modal = () => {
   const [fileName, setFileName] = useState('');
   const [dataImage, setDataImage] = useState('');
   const [success, setSuccess] = useState(true);
   const [isShowNotification, setIsShowNotification] = useState(false);
+  const [isShowLoad, setIsShowLoad] = useState(false);
+
   const closeModal = () => {
     document.body.classList.remove('lock');
     document.querySelector('.modal').classList.remove('modal-active');
@@ -51,6 +54,9 @@ const Modal = () => {
 
   const handleUpload = (e) => {
     e.preventDefault();
+    setIsShowLoad(true);
+    setIsShowNotification(false);
+    setSuccess(true);
     const formData = new FormData();
     formData.append('file', dataImage);
     (async () => {
@@ -61,6 +67,7 @@ const Modal = () => {
         setSuccess(false);
       }
 
+      setIsShowLoad(false);
       setIsShowNotification(true);
     })();
   };
@@ -110,9 +117,12 @@ const Modal = () => {
       </div>
       <p className="modal-text">{fileName || 'No file selected'} </p>
       {userImage ? (
-        <button className="modal-btn-upload" onClick={handleUpload}>
-          UPLOAD PHOTO
-        </button>
+        <>
+          {isShowLoad && <TailSpin height="16" width="16" color="#fff" ariaLabel="loading" wrapperClass="modal-loader" />}
+          <button className="modal-btn-upload" onClick={handleUpload}>
+            {isShowLoad ? 'UPLOADING' : 'UPLOAD PHOTO'}
+          </button>
+        </>
       ) : null}
 
       {isShowNotification && (

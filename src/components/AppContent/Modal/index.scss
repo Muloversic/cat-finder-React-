@@ -74,6 +74,12 @@ body.lock {
     margin-top: 100px;
   }
 
+  &-loader {
+    position: absolute;
+    bottom: 22.5%;
+    left: 40.2%;
+  }
+
   &-title {
     font-size: 36px;
     line-height: 52px;
