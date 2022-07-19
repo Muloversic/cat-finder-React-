@@ -2,8 +2,7 @@ import { useState } from 'react';
 import uploadImg from '../../../assets/upload.png';
 import { postImage } from '../../GetAPI';
 import './index.scss';
-const Modal = (subId) => {
-  const [drag, setDrag] = useState(false);
+const Modal = () => {
   const [fileName, setFileName] = useState('');
   const [dataImage, setDataImage] = useState('');
   const [success, setSuccess] = useState(true);
@@ -16,12 +15,10 @@ const Modal = (subId) => {
   const [userImage, setUserImage] = useState('');
   const dragStartHandler = (e) => {
     e.preventDefault();
-    setDrag(true);
   };
 
   const dragLeaveHandler = (e) => {
     e.preventDefault();
-    setDrag(false);
   };
 
   const onDropHandler = (event) => {
