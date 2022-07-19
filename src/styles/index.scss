@@ -9,11 +9,13 @@ body {
 .container {
   max-width: 1440px;
   margin: 0 auto;
+  @media screen and( max-width:1380px) {
+    padding: 0 20px;
+  }
 }
 
 .content {
-  //   max-height: 840px;
-  width: 682px;
+  max-width: 682px;
   position: relative;
   padding-left: 15px;
   &-loader {

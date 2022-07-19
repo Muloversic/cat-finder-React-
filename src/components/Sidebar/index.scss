@@ -2,6 +2,9 @@
   padding: 0 0 0 133px;
   display: flex;
   flex-direction: column;
+  @media screen and( max-width:1380px) {
+    padding: 0;
+  }
   &-logo {
     margin-top: 8px;
     width: 106px;
