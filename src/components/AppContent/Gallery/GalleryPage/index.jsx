@@ -36,11 +36,19 @@ const GallaeryPage = ({ currentPageName, subId }) => {
   }, []);
 
   useEffect(() => {
+    if (page === 0) {
+      document.querySelector('.pagination-button-prev').setAttribute('disabled', '');
+    } else {
+      document.querySelector('.pagination-button-prev').removeAttribute('disabled');
+    }
+  }, [page]);
+
+  useEffect(() => {
     (async () => {
-      const images = await getImageWithManyFiltres(sortOrder, searchLimit, imageType, catBreed);
+      const images = await getImageWithManyFiltres(sortOrder, searchLimit, imageType, catBreed, page);
       setSearchedCatImages(images);
     })();
-  }, [sortOrder, searchLimit, imageType, catBreed, isUpdateImages]);
+  }, [sortOrder, searchLimit, imageType, catBreed, isUpdateImages, page]);
 
   useEffect(() => {
     if (imgToFavour.image_id) {
@@ -109,6 +117,20 @@ const GallaeryPage = ({ currentPageName, subId }) => {
     document.querySelector('.modal').classList.add('modal-active');
   };
 
+  const handlePage = (e) => {
+    e.preventDefault();
+    const prevButton = [...e.target.classList].includes('pagination-button-prev');
+    const nextButton = [...e.target.classList].includes('pagination-button-next');
+
+    if (prevButton) {
+      setPage((prevPageNumber) => (prevPageNumber -= 1));
+    }
+
+    if (nextButton) {
+      setPage((prevPageNumber) => (prevPageNumber += 1));
+    }
+  };
+
   return (
     <>
       <div className="gallery-page content">
@@ -136,12 +158,12 @@ const GallaeryPage = ({ currentPageName, subId }) => {
           )}
           <UserLog userAction={userAction} />
         </section>
-        <div className="gallery-pagination pagination">
+        <div className="gallery-pagination pagination" onClick={handlePage}>
           <button className="pagination-button pagination-button-prev icon-arrow-left">PREV</button>
           <button className="pagination-button pagination-button-next icon-arrow-left">NEXT</button>
         </div>
       </div>
-      <Modal subId={subId} />
+      <Modal />
     </>
   );
 };
