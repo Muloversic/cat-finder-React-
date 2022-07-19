@@ -40,3 +40,10 @@ body {
     }
   }
 }
+
+.custom-select__control {
+  border: 2px solid #fff !important;
+  &:hover {
+    border: 2px solid #fbe0dc !important;
+  }
+}
