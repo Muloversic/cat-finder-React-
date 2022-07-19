@@ -58,10 +58,16 @@
     &--az {
       background: url('../../../../assets/icons/sort-az.svg');
       margin-right: 10px;
+      &:hover {
+        background: url('../../../../assets/icons/sort-hover.svg');
+      }
     }
 
     &--za {
       background: url('../../../../assets/icons/sort-za.svg');
+      &:hover {
+        background: url('../../../../assets/icons/sort-revert-hover.svg');
+      }
     }
   }
 
