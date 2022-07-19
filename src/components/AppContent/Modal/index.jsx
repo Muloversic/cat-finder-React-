@@ -24,6 +24,21 @@ const Modal = () => {
     e.preventDefault();
   };
 
+  const showUserDroppedImage = (files) => {
+    [].map.call(files, (file) => {
+      if (file.type.match(/^image/)) {
+        let reader = new FileReader();
+        reader.onload = (file) => {
+          const image = <img src={file.target.result} className="modal-download-img" alt="user-cat" />;
+          setUserImage(image);
+          setDataImage(files[0]);
+        };
+
+        reader.readAsDataURL(file);
+      }
+    });
+  };
+
   const onDropHandler = (event) => {
     event.preventDefault();
     setIsShowNotification(false);
@@ -37,18 +52,7 @@ const Modal = () => {
     if (!text) {
       const files = event.dataTransfer.files;
       setFileName(files[0].name);
-      [].map.call(files, (file) => {
-        if (file.type.match(/^image/)) {
-          let reader = new FileReader();
-          reader.onload = (file) => {
-            const image = <img src={file.target.result} className="modal-download-img" alt="user-cat" />;
-            setUserImage(image);
-            setDataImage(files[0]);
-          };
-
-          reader.readAsDataURL(file);
-        }
-      });
+      showUserDroppedImage(files);
     }
   };
 
@@ -77,18 +81,7 @@ const Modal = () => {
     setSuccess(true);
     setDataImage(e.target.files[0]);
     const files = e.target.files;
-    [].map.call(files, (file) => {
-      if (file.type.match(/^image/)) {
-        let reader = new FileReader();
-        reader.onload = (file) => {
-          const image = <img src={file.target.result} className="modal-download-img" alt="user-cat" />;
-          setUserImage(image);
-          setDataImage(files[0]);
-        };
-
-        reader.readAsDataURL(file);
-      }
-    });
+    showUserDroppedImage(files);
   };
 
   return (
@@ -98,7 +91,7 @@ const Modal = () => {
         <h2 className="modal-title">Upload a .jpg or .png Cat Image</h2>
         <p className="modal-text">
           Any uploads must comply with the{' '}
-          <a className='modal-link' href="https://thecatapi.com/privacy" target="_blank">
+          <a className="modal-link" href="https://thecatapi.com/privacy" target="_blank">
             upload guidelines
           </a>{' '}
           or face deletion.
