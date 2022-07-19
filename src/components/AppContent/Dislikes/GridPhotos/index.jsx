@@ -10,7 +10,7 @@ const GridPhotos = ({ votedImages, setIdToDelete }) => {
       return (
         <div className="photos-picture" key={cat.id} data-photo-id={cat.vote_id}>
           <img src={cat.url} alt="cat" />
-          <div className="photos-hover-label icon-heart-fill" data-photo-id={cat.vote_id}></div>
+          <div className="photos-hover-label icon-sad-face" data-photo-id={cat.vote_id}></div>
         </div>
       );
     });
