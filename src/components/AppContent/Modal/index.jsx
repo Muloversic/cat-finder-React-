@@ -119,7 +119,13 @@ const Modal = (subId) => {
       ) : null}
 
       {isShowNotification && (
-        <p className="modal-text modal-text--small modal-text--notification">
+        <p
+          className={
+            success
+              ? 'modal-text modal-text--small modal-text--notification modal-text--success'
+              : 'modal-text modal-text--small modal-text--notification modal-text--error'
+          }
+        >
           {success ? 'Thanks for the Upload - Cat found!' : 'No Cat found - try a different one'}
         </p>
       )}

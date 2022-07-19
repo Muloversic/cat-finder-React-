@@ -99,6 +99,26 @@ body.lock {
     &--notification {
       margin-right: auto;
       margin-top: 20px;
+      position: relative;
+      padding-left: 31px;
+      &::before {
+        position: absolute;
+        top: 64%;
+        left: 0%;
+        transform: translate(0, -50%);
+      }
+    }
+
+    &--error {
+      &::before {
+        content: url(../../../assets/icons/error.svg);
+      }
+    }
+
+    &--success {
+      &::before {
+        content: url(../../../assets/icons/success.svg);
+      }
     }
   }
 
