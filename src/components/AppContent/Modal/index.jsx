@@ -6,6 +6,8 @@ const Modal = (subId) => {
   const [drag, setDrag] = useState(false);
   const [fileName, setFileName] = useState('');
   const [dataImage, setDataImage] = useState('');
+  const [success, setSuccess] = useState(true);
+  const [isShowNotification, setIsShowNotification] = useState(false);
   const closeModal = () => {
     document.body.classList.remove('lock');
     document.querySelector('.modal').classList.remove('modal-active');
@@ -24,6 +26,8 @@ const Modal = (subId) => {
 
   const onDropHandler = (event) => {
     event.preventDefault();
+    setIsShowNotification(false);
+    setSuccess(true);
     const text = event.dataTransfer.getData('text');
     if (text) {
       const image = <img src={text} className="modal-download-img" alt="user-photo" />;
@@ -52,11 +56,35 @@ const Modal = (subId) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('file', dataImage);
-    (async () => await postImage(formData))();
+    (async () => {
+      const response = await postImage(formData);
+      if (response.id) {
+        setSuccess(true);
+      } else {
+        setSuccess(false);
+      }
+
+      setIsShowNotification(true);
+    })();
   };
 
   const handleFile = (e) => {
+    setIsShowNotification(false);
+    setSuccess(true);
     setDataImage(e.target.files[0]);
+    const files = e.target.files;
+    [].map.call(files, (file) => {
+      if (file.type.match(/^image/)) {
+        let reader = new FileReader();
+        reader.onload = (file) => {
+          const image = <img src={file.target.result} className="modal-download-img" alt="user-photo" />;
+          setUserImage(image);
+          setDataImage(files[0]);
+        };
+
+        reader.readAsDataURL(file);
+      }
+    });
   };
 
   return (
@@ -69,7 +97,7 @@ const Modal = (subId) => {
         </p>
       </div>
       <div
-        className="modal-drop"
+        className={success ? 'modal-drop' : 'modal-drop modal-drop--error'}
         onDragStart={(e) => dragStartHandler(e)}
         onDragLeave={(e) => dragLeaveHandler(e)}
         onDragOver={(e) => dragStartHandler(e)}
@@ -89,7 +117,12 @@ const Modal = (subId) => {
           UPLOAD PHOTO
         </button>
       ) : null}
-      <p className="modal-text modal-text--small">Thanks for the Upload - Cat found!</p>
+
+      {isShowNotification && (
+        <p className="modal-text modal-text--small modal-text--notification">
+          {success ? 'Thanks for the Upload - Cat found!' : 'No Cat found - try a different one'}
+        </p>
+      )}
     </div>
   );
 };
