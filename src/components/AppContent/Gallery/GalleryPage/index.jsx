@@ -12,6 +12,7 @@ const GallaeryPage = ({ currentPageName, subId }) => {
   const [allBreeds, setAllBreeds] = useState([]);
   const [searchedCatImages, setSearchedCatImages] = useState([]);
   const [searchLimit, setSearchLimit] = useState(5);
+  const [page, setPage] = useState(0);
   const [sortOrder, setSortOred] = useState('RANDOM');
   const [imageType, setImageType] = useState('jpg,png');
   const [catBreed, setCatBreed] = useState('');
@@ -135,8 +136,12 @@ const GallaeryPage = ({ currentPageName, subId }) => {
           )}
           <UserLog userAction={userAction} />
         </section>
+        <div className="gallery-pagination pagination">
+          <button className="pagination-button pagination-button-prev icon-arrow-left">PREV</button>
+          <button className="pagination-button pagination-button-next icon-arrow-left">NEXT</button>
+        </div>
       </div>
-      <Modal subId={subId}/>
+      <Modal subId={subId} />
     </>
   );
 };
