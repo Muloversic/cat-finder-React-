@@ -97,7 +97,11 @@ const Modal = () => {
       <div className="modal-header">
         <h2 className="modal-title">Upload a .jpg or .png Cat Image</h2>
         <p className="modal-text">
-          Any uploads must comply with the <span>upload guidelines</span> or face deletion.
+          Any uploads must comply with the{' '}
+          <a className='modal-link' href="https://thecatapi.com/privacy" target="_blank">
+            upload guidelines
+          </a>{' '}
+          or face deletion.
         </p>
       </div>
       <div
