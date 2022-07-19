@@ -27,7 +27,7 @@ const Modal = () => {
     setSuccess(true);
     const text = event.dataTransfer.getData('text');
     if (text) {
-      const image = <img src={text} className="modal-download-img" alt="user-photo" />;
+      const image = <img src={text} className="modal-download-img" alt="user-cat" />;
       setUserImage(image);
     }
 
@@ -38,7 +38,7 @@ const Modal = () => {
         if (file.type.match(/^image/)) {
           let reader = new FileReader();
           reader.onload = (file) => {
-            const image = <img src={file.target.result} className="modal-download-img" alt="user-photo" />;
+            const image = <img src={file.target.result} className="modal-download-img" alt="user-cat" />;
             setUserImage(image);
             setDataImage(files[0]);
           };
@@ -74,7 +74,7 @@ const Modal = () => {
       if (file.type.match(/^image/)) {
         let reader = new FileReader();
         reader.onload = (file) => {
-          const image = <img src={file.target.result} className="modal-download-img" alt="user-photo" />;
+          const image = <img src={file.target.result} className="modal-download-img" alt="user-cat" />;
           setUserImage(image);
           setDataImage(files[0]);
         };
