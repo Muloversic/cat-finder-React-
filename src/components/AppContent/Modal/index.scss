@@ -108,14 +108,17 @@ body.lock {
     }
 
     &--notification {
-      margin-right: auto;
+      border-radius: 10px;
+      width: 100%;
       margin-top: 20px;
       position: relative;
-      padding-left: 31px;
+      padding: 18px 0 18px 50px;
+      background-color: #fff;
+      text-align: left;
       &::before {
         position: absolute;
-        top: 64%;
-        left: 0%;
+        top: 58%;
+        left: 3%;
         transform: translate(0, -50%);
       }
     }
@@ -147,7 +150,6 @@ body.lock {
     height: 320px;
     &-bg {
       position: absolute;
-      z-index: -1;
     }
 
     &--error {
@@ -158,6 +160,7 @@ body.lock {
 
   &-drop-info {
     position: relative;
+    z-index: 2;
     font-size: 20px;
     line-height: 30px;
     color: #8c8c8c;

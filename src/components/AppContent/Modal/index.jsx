@@ -9,6 +9,7 @@ const Modal = () => {
   const [success, setSuccess] = useState(true);
   const [isShowNotification, setIsShowNotification] = useState(false);
   const [isShowLoad, setIsShowLoad] = useState(false);
+  const [isShowButton, setIsShowButton] = useState(false);
 
   const closeModal = () => {
     document.body.classList.remove('lock');
@@ -25,6 +26,7 @@ const Modal = () => {
   };
 
   const showUserDroppedImage = (files) => {
+    setIsShowButton(true);
     [].map.call(files, (file) => {
       if (file.type.match(/^image/)) {
         let reader = new FileReader();
@@ -71,6 +73,7 @@ const Modal = () => {
         setSuccess(false);
       }
 
+      setIsShowButton(false);
       setIsShowLoad(false);
       setIsShowNotification(true);
     })();
@@ -105,15 +108,17 @@ const Modal = () => {
         onDrop={(e) => onDropHandler(e)}
       >
         {userImage || (
-          <p className="modal-drop-info">
-            <input type="file" className="modal-input" onChange={handleFile} />
-            <span>Drag here</span> your file or <span>Click here</span> to upload
-          </p>
+          <>
+            <p className="modal-drop-info">
+              <input type="file" className="modal-input" onChange={handleFile} />
+              <span>Drag here</span> your file or <span>Click here</span> to upload
+            </p>
+            <img src={uploadImg} alt="upload-here" className="modal-drop-bg" />
+          </>
         )}
-        <img src={uploadImg} alt="upload-here" className="modal-drop-bg" />
       </div>
       <p className="modal-text">{fileName || 'No file selected'} </p>
-      {userImage ? (
+      {isShowButton ? (
         <>
           {isShowLoad && <TailSpin height="16" width="16" color="#fff" ariaLabel="loading" wrapperClass="modal-loader" />}
           <button className="modal-btn-upload" onClick={handleUpload}>
