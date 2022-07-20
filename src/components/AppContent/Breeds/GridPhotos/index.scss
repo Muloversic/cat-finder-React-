@@ -11,6 +11,10 @@
     grid-template-columns: repeat(3, 200px);
     grid-template-rows: repeat(3, 140px);
     gap: 15px;
+    @media screen and(max-width:768px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(5, auto);
+    }
   }
 
   &-link {
@@ -127,6 +131,68 @@
         height: inherit;
       }
     }
+
+    @media screen and(max-width:768px) {
+      &:nth-of-type(1) {
+        width: 500px;
+        height: 350px;
+        grid-row: 1;
+        grid-column: 1 / 2;
+        img {
+          width: inherit;
+          height: inherit;
+          object-fit: cover;
+        }
+      }
+
+      &:nth-of-type(2) {
+        width: 500px;
+        height: 350px;
+        grid-row: 2;
+        grid-column: 1 / 2;
+        img {
+          width: inherit;
+          height: inherit;
+          object-fit: cover;
+        }
+      }
+
+      &:nth-of-type(3) {
+        width: 500px;
+        height: 350px;
+        grid-row: 3;
+        grid-column: 1 / 2;
+        img {
+          width: inherit;
+          height: inherit;
+          object-fit: cover;
+        }
+      }
+
+      &:nth-of-type(4) {
+        width: 500px;
+        height: 350px;
+        grid-row: 4;
+        grid-column: 1 / 2;
+        img {
+          width: inherit;
+          height: inherit;
+          object-fit: cover;
+        }
+      }
+
+      &:nth-of-type(5) {
+        width: 500px;
+        height: 350px;
+        grid-row: 5;
+        grid-column: 1 / 2;
+        img {
+          width: inherit;
+          height: inherit;
+          object-fit: cover;
+        }
+      }
+    }
   }
 }
 
@@ -186,5 +252,131 @@
         height: inherit;
       }
     }
+    @media screen and(max-width:768px) {
+      &:nth-of-type(1) {
+        width: 500px;
+        height: 350px;
+        grid-row: 1;
+        grid-column: 1 / 2;
+        img {
+          width: inherit;
+          height: inherit;
+          object-fit: cover;
+        }
+      }
+
+      &:nth-of-type(2) {
+        width: 500px;
+        height: 350px;
+        grid-row: 2;
+        grid-column: 1 / 2;
+        img {
+          width: inherit;
+          height: inherit;
+          object-fit: cover;
+        }
+      }
+
+      &:nth-of-type(3) {
+        width: 500px;
+        height: 350px;
+        grid-row: 3;
+        grid-column: 1 / 2;
+        img {
+          width: inherit;
+          height: inherit;
+          object-fit: cover;
+        }
+      }
+
+      &:nth-of-type(4) {
+        width: 500px;
+        height: 350px;
+        grid-row: 4;
+        grid-column: 1 / 2;
+        img {
+          width: inherit;
+          height: inherit;
+          object-fit: cover;
+        }
+      }
+
+      &:nth-of-type(5) {
+        width: 500px;
+        height: 350px;
+        grid-row: 5;
+        grid-column: 1 / 2;
+        img {
+          width: inherit;
+          height: inherit;
+          object-fit: cover;
+        }
+      }
+    }
   }
+  //   @media screen and(max-width:768px) {
+  //     .photos-grid {
+  //       .photos-picture {
+  //         &:nth-of-type(1) {
+  //           width: 500px;
+  //           height: 350px;
+  //           grid-row: 1;
+  //           grid-column: 1 / 2;
+  //           img {
+  //             width: inherit;
+  //             height: inherit;
+  //             object-fit: cover;
+  //           }
+  //         }
+
+  //         &:nth-of-type(2) {
+  //           width: 500px;
+  //           height: 350px;
+  //           grid-row: 2;
+  //           grid-column: 1 / 2;
+  //           img {
+  //             width: inherit;
+  //             height: inherit;
+  //             object-fit: cover;
+  //           }
+  //         }
+
+  //         &:nth-of-type(3) {
+  //           width: 500px;
+  //           height: 350px;
+  //           grid-row: 3;
+  //           grid-column: 1 / 2;
+  //           img {
+  //             width: inherit;
+  //             height: inherit;
+  //             object-fit: cover;
+  //           }
+  //         }
+
+  //         &:nth-of-type(4) {
+  //           width: 500px;
+  //           height: 350px;
+  //           grid-row: 4;
+  //           grid-column: 1 / 2;
+  //           img {
+  //             width: inherit;
+  //             height: inherit;
+  //             object-fit: cover;
+  //           }
+  //         }
+
+  //         &:nth-of-type(5) {
+  //           width: 500px;
+  //           height: 350px;
+  //           grid-row: 5;
+  //           grid-column: 1 / 2;
+  //           img {
+  //             width: inherit;
+  //             height: inherit;
+  //             object-fit: cover;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
 }
