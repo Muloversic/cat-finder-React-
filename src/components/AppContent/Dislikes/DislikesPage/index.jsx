@@ -76,18 +76,20 @@ const DislikesPage = ({ currentPageName, subId }) => {
   return (
     <div className="dislikes-page content">
       <Navbar />
-      <ActionBar currentPageName={currentPageName} />
-      <section className="dislikes dislikes-section content">
-        {isShowLoad && (
-          <TailSpin height="100" width="100" color="#ff868e4c" ariaLabel="loading" wrapperClass="content-loader" />
-        )}
-        {votedImages.length === 0 && !isShowLoad ? (
-          <NoItemsFound />
-        ) : (
-          <GridPhotos votedImages={votedImages} setIdToDelete={setIdToDelete} />
-        )}
-      </section>
-      <UserLog userAction={userAction} />
+      <div className="content-wrapper">
+        <ActionBar currentPageName={currentPageName} />
+        <section className="dislikes dislikes-section content">
+          {isShowLoad && (
+            <TailSpin height="100" width="100" color="#ff868e4c" ariaLabel="loading" wrapperClass="content-loader" />
+          )}
+          {votedImages.length === 0 && !isShowLoad ? (
+            <NoItemsFound />
+          ) : (
+            <GridPhotos votedImages={votedImages} setIdToDelete={setIdToDelete} />
+          )}
+        </section>
+        <UserLog userAction={userAction} />
+      </div>
     </div>
   );
 };
