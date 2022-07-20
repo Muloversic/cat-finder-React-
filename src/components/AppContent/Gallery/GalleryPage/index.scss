@@ -27,7 +27,7 @@
       color: #fff;
     }
 
-    &-disabled {
+    &[disabled] {
       color: #8c8c8c;
       background: #fff;
       &:hover {
