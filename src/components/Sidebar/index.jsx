@@ -41,15 +41,15 @@ const Sidebar = ({ currentPageName }) => {
               </NavLink>
             </li>
           </ul>
-          <ul class="aside-list">
-            <li class="aside-list-item">
-              <a class="aside-list-link icon-smile" href="/likes"></a>
+          <ul className="aside-list">
+            <li className="aside-list-item">
+              <a className="aside-list-link icon-smile" href="/likes"></a>
             </li>
-            <li class="aside-list-item">
-              <a class="aside-list-link icon-heart" href="/favourites"></a>
+            <li className="aside-list-item">
+              <a className="aside-list-link icon-heart" href="/favourites"></a>
             </li>
-            <li class="aside-list-item">
-              <a class="aside-list-link icon-sad-face" href="/dislikes"></a>
+            <li className="aside-list-item">
+              <a className="aside-list-link icon-sad-face" href="/dislikes"></a>
             </li>
           </ul>
         </div>
