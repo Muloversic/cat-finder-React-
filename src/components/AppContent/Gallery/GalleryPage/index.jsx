@@ -135,29 +135,31 @@ const GallaeryPage = ({ currentPageName, subId }) => {
     <>
       <div className="gallery-page content">
         <Navbar />
-        <ActionBar
-          currentPageName={currentPageName}
-          allBreeds={allBreeds}
-          handleBreeds={handleBreeds}
-          handleLimit={handleLimit}
-          handleOrder={handleOrder}
-          handleType={handleType}
-          hadnleResetImages={hadnleResetImages}
-          openModal={openModal}
-        />
-        <section className="gallery-section content">
-          {searchedCatImages.length > 0 ? (
-            <GridPhotos
-              searchedCatImages={searchedCatImages}
-              setImgToFavour={setImgToFavour}
-              subId={subId}
-              setIsUserAddFavour={setIsUserAddFavour}
-            />
-          ) : (
-            <NoItemsFound />
-          )}
-          <UserLog userAction={userAction} />
-        </section>
+        <div className="content-wrapper">
+          <ActionBar
+            currentPageName={currentPageName}
+            allBreeds={allBreeds}
+            handleBreeds={handleBreeds}
+            handleLimit={handleLimit}
+            handleOrder={handleOrder}
+            handleType={handleType}
+            hadnleResetImages={hadnleResetImages}
+            openModal={openModal}
+          />
+          <section className="gallery-section content">
+            {searchedCatImages.length > 0 ? (
+              <GridPhotos
+                searchedCatImages={searchedCatImages}
+                setImgToFavour={setImgToFavour}
+                subId={subId}
+                setIsUserAddFavour={setIsUserAddFavour}
+              />
+            ) : (
+              <NoItemsFound />
+            )}
+            <UserLog userAction={userAction} />
+          </section>
+        </div>
         <div className="gallery-pagination pagination" onClick={handlePage}>
           <button className="pagination-button pagination-button-prev icon-arrow-left">PREV</button>
           <button className="pagination-button pagination-button-next icon-arrow-left">NEXT</button>
