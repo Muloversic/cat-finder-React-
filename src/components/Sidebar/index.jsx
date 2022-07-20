@@ -11,7 +11,7 @@ const Sidebar = ({ currentPageName }) => {
     const burger = document.querySelector('.aside-nav-burger');
     burger.classList.toggle('active');
   };
-  
+
   return (
     <>
       <nav className="aside-nav">
@@ -39,6 +39,17 @@ const Sidebar = ({ currentPageName }) => {
               <NavLink to="/gallery" className="aside-nav-link">
                 Gallery
               </NavLink>
+            </li>
+          </ul>
+          <ul class="aside-list">
+            <li class="aside-list-item">
+              <a class="aside-list-link icon-smile" href="/likes"></a>
+            </li>
+            <li class="aside-list-item">
+              <a class="aside-list-link icon-heart" href="/favourites"></a>
+            </li>
+            <li class="aside-list-item">
+              <a class="aside-list-link icon-sad-face" href="/dislikes"></a>
             </li>
           </ul>
         </div>

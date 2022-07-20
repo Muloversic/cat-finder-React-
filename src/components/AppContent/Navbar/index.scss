@@ -13,6 +13,11 @@
     z-index: 22;
   }
 
+  @media screen and(max-width:530px) {
+    justify-content: flex-end;
+    padding: 15px 10px;
+  }
+
   &-form {
     position: relative;
     &-input {
@@ -34,6 +39,11 @@
           font-size: 14px;
         }
       }
+
+      @media screen and(max-width:530px) {
+        width: 268px;
+      }
+
       &::placeholder {
         color: #8c8c8c;
       }
@@ -77,6 +87,10 @@
     justify-content: space-between;
     width: 28%;
     margin-left: 15px;
+    @media screen and(max-width:530px) {
+      display: none;
+    }
+
     &-item {
       &:first-of-type {
         margin-left: 0;

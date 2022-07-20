@@ -10,6 +10,43 @@
     display: none;
   }
 
+  &-list {
+    display: none;
+    justify-content: space-between;
+    width: 90%;
+    margin: 50px 0;
+    @media screen and(max-width:530px) {
+      display: flex;
+    }
+
+    &-item {
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      margin-left: 5px;
+    }
+
+    &-link {
+      color: #ff868e;
+      text-decoration: none;
+      font-size: 28px;
+      padding: 10px 15px;
+      background-color: #fff;
+      border-radius: 20px;
+      &:hover {
+        background: #fbe0dc;
+        border-radius: 20px;
+      }
+    }
+
+    &-link.active {
+      background: #ff868e;
+      border-radius: 20px;
+      color: #fff;
+    }
+  }
+
   &-nav {
     &-burger {
       position: fixed;
@@ -57,6 +94,18 @@
       left: 24%;
       @media screen and(max-width:768px) {
         left: 39%;
+      }
+
+      @media screen and(max-width:530px) {
+        left: 54%;
+      }
+
+      @media screen and(max-width:375px) {
+        left: 77%;
+      }
+
+      @media screen and(max-width:320px) {
+        left: 86%;
       }
     }
 
