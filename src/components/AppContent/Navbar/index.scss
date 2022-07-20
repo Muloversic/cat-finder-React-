@@ -4,13 +4,14 @@
   justify-content: flex-end;
   &-form {
     position: relative;
-    margin-right: 10px;
     &-input {
       font-weight: 400;
       font-size: 20px;
       line-height: 30px;
       border: none;
-      padding: 15px 205px 15px 30px;
+      padding: 15px 64px 15px 30px;
+
+      width: 470px;
       color: #1d1d1d;
       outline: none;
       border: 2px solid #fff;
@@ -51,7 +52,7 @@
     display: flex;
     justify-content: space-between;
     width: 28%;
-    margin-left: 8px;
+    margin-left: 15px;
     &-item {
       &:first-of-type {
         margin-left: 0;
@@ -65,6 +66,8 @@
       text-decoration: none;
       font-size: 28px;
       padding: 10px 15px;
+      background-color: #fff;
+      border-radius: 20px;
       &:hover {
         background: #fbe0dc;
         border-radius: 20px;

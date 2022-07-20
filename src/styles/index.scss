@@ -4,6 +4,7 @@
 
 body {
   font-family: 'Jost';
+  background-color: #f8f8f7;
 }
 
 .container {
@@ -15,14 +16,21 @@ body {
 }
 
 .content {
-  max-width: 682px;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  padding-left: 15px;
+  flex: 1 1 33%;
   &-loader {
     position: absolute;
     top: -200%;
     left: 50%;
     transform: translate(-50%, 200%);
+  }
+  &-wrapper {
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
   }
 }
 

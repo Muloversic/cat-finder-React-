@@ -51,7 +51,7 @@ const BreedsPage = ({ currentPageName }) => {
   };
 
   return (
-    <>
+    <div className="content-wrapper">
       <ActionBar
         currentPageName={currentPageName}
         allBreeds={allBreeds}
@@ -66,7 +66,7 @@ const BreedsPage = ({ currentPageName }) => {
         catBreed={catBreed}
         sortOrder={sortOrder}
       />
-    </>
+    </div>
   );
 };
 

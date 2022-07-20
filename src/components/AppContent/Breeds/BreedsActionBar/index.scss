@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 30px;
   &-btn-prev {
     background: #fbe0dc;
     border-radius: 10px;
@@ -49,24 +48,50 @@
 
   &-sort-buttons {
     display: flex;
+    width: 15%;
+    justify-content: space-around;
   }
 
   &-sort {
     width: 18px;
     height: 21px;
     cursor: pointer;
+    background-color: #f8f8f7;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
     &--az {
-      background: url('../../../../assets/icons/sort-az.svg');
-      margin-right: 10px;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: url('../../../../assets/icons/sort-az.svg');
+      }
+
       &:hover {
-        background: url('../../../../assets/icons/sort-hover.svg');
+        &::before {
+          content: url('../../../../assets/icons/sort-hover.svg');
+        }
       }
     }
 
     &--za {
-      background: url('../../../../assets/icons/sort-za.svg');
+      position: relative;
+      &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: url('../../../../assets/icons/sort-za.svg');
+      }
+
       &:hover {
-        background: url('../../../../assets/icons/sort-revert-hover.svg');
+        &::before {
+          content: url('../../../../assets/icons/sort-revert-hover.svg');
+        }
       }
     }
   }
@@ -88,12 +113,17 @@
       border: none;
       cursor: pointer;
       background: #f8f8f7;
+      border-color: #f8f8f7 !important;
       border-radius: 10px;
       border-width: 21px;
     }
 
     &--short.custom-select__control {
-      width: 121px;
+      width: 105px;
+    }
+
+    &--short.custom-select__value-container {
+      padding: 2px 1px 2px 1px;
     }
 
     &__indicator-separator {
