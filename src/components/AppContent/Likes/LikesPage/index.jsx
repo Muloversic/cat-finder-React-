@@ -65,7 +65,7 @@ const LikesPage = ({ currentPageName, subId }) => {
             {
               time: [new Date().getHours(), new Date().getMinutes()],
               imageId: idToDelete,
-              voteDir: 'likes',
+              voteDir: 'Likes',
               voteAction: 'deleted from',
             },
           ]);
@@ -76,18 +76,20 @@ const LikesPage = ({ currentPageName, subId }) => {
   return (
     <div className="likes-page content">
       <Navbar />
-      <ActionBar currentPageName={currentPageName} />
-      <section className="likes likes-section content">
-        {isShowLoad && (
-          <TailSpin height="100" width="100" color="#ff868e4c" ariaLabel="loading" wrapperClass="content-loader" />
-        )}
-        {votedImages.length === 0 && !isShowLoad ? (
-          <NoItemsFound />
-        ) : (
-          <GridPhotos votedImages={votedImages} setIdToDelete={setIdToDelete} />
-        )}
-      </section>
-      <UserLog userAction={userAction} />
+      <div className="content-wrapper">
+        <ActionBar currentPageName={currentPageName} />
+        <section className="likes likes-section content">
+          {isShowLoad && (
+            <TailSpin height="100" width="100" color="#ff868e4c" ariaLabel="loading" wrapperClass="content-loader" />
+          )}
+          {votedImages.length === 0 && !isShowLoad ? (
+            <NoItemsFound />
+          ) : (
+            <GridPhotos votedImages={votedImages} setIdToDelete={setIdToDelete} />
+          )}
+        </section>
+        <UserLog userAction={userAction} />
+      </div>
     </div>
   );
 };
