@@ -10,6 +10,7 @@ const DislikesPage = ({ currentPageName, subId }) => {
   const [votedImages, setVotedImages] = useState([]);
   const [idToDelete, setIdToDelete] = useState(0);
   const [isShowLoad, setIsShowLoad] = useState(true);
+  const [imageIdToShow, setImageIdToShow] = useState(0);
   const [userAction, setUserAction] = useState([
     {
       time: [],
@@ -64,7 +65,7 @@ const DislikesPage = ({ currentPageName, subId }) => {
             ...prevAction,
             {
               time: [new Date().getHours(), new Date().getMinutes()],
-              imageId: idToDelete,
+              imageId: imageIdToShow,
               voteDir: 'dislikes',
               voteAction: 'deleted from',
             },
@@ -85,7 +86,7 @@ const DislikesPage = ({ currentPageName, subId }) => {
           {votedImages.length === 0 && !isShowLoad ? (
             <NoItemsFound />
           ) : (
-            <GridPhotos votedImages={votedImages} setIdToDelete={setIdToDelete} />
+            <GridPhotos votedImages={votedImages} setIdToDelete={setIdToDelete} setImageIdToShow={setImageIdToShow}/>
           )}
         </section>
         <UserLog userAction={userAction} />
