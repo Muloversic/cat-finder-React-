@@ -38,7 +38,6 @@ export const sendVotedImage = async (body, voteType) => {
     });
 
     const json = await votedImage.json();
-    console.log('Успех:', JSON.stringify(json));
     return json;
   } catch (e) {
     console.error(e);
@@ -70,7 +69,6 @@ export const deleteVotedImages = async (voteType, image) => {
       },
     });
     const response = await catsData.json();
-    console.log(JSON.stringify(response));
     return response;
   } catch (e) {
     console.error(e);
@@ -97,7 +95,6 @@ export const deleteImageById = async (id) => {
       },
     });
     const response = await image.json();
-    console.log(JSON.stringify(response));
     return response;
   } catch (e) {
     console.error(e);
@@ -142,7 +139,6 @@ export const postImage = async (body) => {
       },
     });
     const response = await image.json();
-    console.log(response);
     return response;
   } catch (e) {
     console.error(e);
