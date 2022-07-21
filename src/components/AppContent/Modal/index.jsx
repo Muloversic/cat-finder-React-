@@ -89,55 +89,61 @@ const Modal = () => {
 
   return (
     <div className="modal">
-      <span className="modal-btn-close icon-close" onClick={closeModal}></span>
-      <div className="modal-header">
-        <h2 className="modal-title">Upload a .jpg or .png Cat Image</h2>
-        <p className="modal-text">
-          Any uploads must comply with the{' '}
-          <a className="modal-link" href="https://thecatapi.com/privacy" target="_blank">
-            upload guidelines
-          </a>{' '}
-          or face deletion.
-        </p>
-      </div>
-      <div
-        className={success ? 'modal-drop' : 'modal-drop modal-drop--error'}
-        onDragStart={(e) => dragStartHandler(e)}
-        onDragLeave={(e) => dragLeaveHandler(e)}
-        onDragOver={(e) => dragStartHandler(e)}
-        onDrop={(e) => onDropHandler(e)}
-      >
-        {userImage || (
-          <>
-            <p className="modal-drop-info">
-              <input type="file" className="modal-input" onChange={handleFile} />
-              <span>Drag here</span> your file or <span>Click here</span> to upload
+      <div className="overlay">
+        <div className="content">
+          <span className="modal-btn-close icon-close" onClick={closeModal}></span>
+          <div className="modal-header">
+            <h2 className="modal-title">Upload a .jpg or .png Cat Image</h2>
+            <p className="modal-text">
+              Any uploads must comply with the{' '}
+              <a className="modal-link" href="https://thecatapi.com/privacy" target="_blank">
+                upload guidelines
+              </a>{' '}
+              or face deletion.
             </p>
-            <img src={uploadImg} alt="upload-here" className="modal-drop-bg" />
-          </>
-        )}
-      </div>
-      <p className="modal-text">{fileName || 'No file selected'} </p>
-      {isShowButton ? (
-        <>
-          {isShowLoad && <TailSpin height="16" width="16" color="#fff" ariaLabel="loading" wrapperClass="modal-loader" />}
-          <button className="modal-btn-upload" onClick={handleUpload}>
-            {isShowLoad ? 'UPLOADING' : 'UPLOAD PHOTO'}
-          </button>
-        </>
-      ) : null}
+          </div>
+          <div
+            className={success ? 'modal-drop' : 'modal-drop modal-drop--error'}
+            onDragStart={(e) => dragStartHandler(e)}
+            onDragLeave={(e) => dragLeaveHandler(e)}
+            onDragOver={(e) => dragStartHandler(e)}
+            onDrop={(e) => onDropHandler(e)}
+          >
+            {userImage || (
+              <>
+                <p className="modal-drop-info">
+                  <input type="file" className="modal-input" onChange={handleFile} />
+                  <span>Drag here</span> your file or <span>Click here</span> to upload
+                </p>
+                <img src={uploadImg} alt="upload-here" className="modal-drop-bg" />
+              </>
+            )}
+          </div>
+          <p className="modal-text">{fileName || 'No file selected'} </p>
+          {isShowButton ? (
+            <>
+              {isShowLoad && (
+                <TailSpin height="16" width="16" color="#fff" ariaLabel="loading" wrapperClass="modal-loader" />
+              )}
+              <button className="modal-btn-upload" onClick={handleUpload}>
+                {isShowLoad ? 'UPLOADING' : 'UPLOAD PHOTO'}
+              </button>
+            </>
+          ) : null}
 
-      {isShowNotification && (
-        <p
-          className={
-            success
-              ? 'modal-text modal-text--small modal-text--notification modal-text--success'
-              : 'modal-text modal-text--small modal-text--notification modal-text--error'
-          }
-        >
-          {success ? 'Thanks for the Upload - Cat found!' : 'No Cat found - try a different one'}
-        </p>
-      )}
+          {isShowNotification && (
+            <p
+              className={
+                success
+                  ? 'modal-text modal-text--small modal-text--notification modal-text--success'
+                  : 'modal-text modal-text--small modal-text--notification modal-text--error'
+              }
+            >
+              {success ? 'Thanks for the Upload - Cat found!' : 'No Cat found - try a different one'}
+            </p>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
