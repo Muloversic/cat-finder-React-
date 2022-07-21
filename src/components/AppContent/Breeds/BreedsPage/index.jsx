@@ -1,7 +1,6 @@
 import { getAllBreedsLimited, getLimitedImages, getAllBreeds } from '../../../GetAPI';
 import ActionBar from '../BreedsActionBar';
 import GridPhotos from '../GridPhotos';
-import './index.scss';
 import { useEffect, useState } from 'react';
 
 const BreedsPage = ({ currentPageName }) => {
