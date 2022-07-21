@@ -16,10 +16,10 @@ const ActionBar = ({
   });
 
   const optionsLimit = [
-    { value: 5, label: 'Limit: 5' },
-    { value: 10, label: 'Limit: 10' },
-    { value: 15, label: 'Limit: 15' },
-    { value: 20, label: 'Limit: 20' },
+    { value: 5, label: 'Limit per page: 5' },
+    { value: 10, label: 'Limit per page: 10' },
+    { value: 15, label: 'Limit per page: 15' },
+    { value: 20, label: 'Limit per page: 20' },
   ];
 
   const optionsOrder = [
