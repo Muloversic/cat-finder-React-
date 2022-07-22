@@ -43,13 +43,13 @@ const Sidebar = ({ currentPageName }) => {
           </ul>
           <ul className="aside-list">
             <li className="aside-list-item">
-              <a className="aside-list-link icon-smile" href="/likes"></a>
+              <NavLink to="/likes" className="aside-list-link icon-smile" />
             </li>
             <li className="aside-list-item">
-              <a className="aside-list-link icon-heart" href="/favourites"></a>
+              <NavLink to="/favourites" className="aside-list-link icon-heart" />
             </li>
             <li className="aside-list-item">
-              <a className="aside-list-link icon-sad-face" href="/dislikes"></a>
+              <NavLink to="/dislikes" className="aside-list-link icon-sad-face" />
             </li>
           </ul>
         </div>
