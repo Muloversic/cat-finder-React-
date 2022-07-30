@@ -4,6 +4,21 @@ export const getAllBreedsLimited = async (limit) => {
   return response;
 };
 
+export const getCatsByBreed = async (breedId, limit) => {
+  try {
+    const catsData = await fetch(`https://api.thecatapi.com/v1/images/search?limit=${limit}&breed_ids=${breedId}`, {
+      method: 'GET',
+      headers: {
+        'x-api-key': 'bf513bac-3dbf-4809-b46a-6a3c40e1e4ad',
+      },
+    });
+    const response = await catsData.json();
+    return response;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
 export const getAllBreeds = async () => {
   const catsData = await fetch(`https://api.thecatapi.com/v1/breeds`);
   const response = await catsData.json();

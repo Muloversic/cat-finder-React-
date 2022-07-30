@@ -1,4 +1,4 @@
-import { getAllBreedsLimited, getLimitedImages, getAllBreeds } from '../../../GetAPI';
+import { getAllBreedsLimited, getAllBreeds, getCatsByBreed } from '../../../GetAPI';
 import ActionBar from '../BreedsActionBar';
 import GridPhotos from '../GridPhotos';
 import { useEffect, useState } from 'react';
@@ -17,8 +17,8 @@ const BreedsPage = ({ currentPageName }) => {
     };
 
     const setLimitedBreedImages = async () => {
-      const limitedBreeds = await getLimitedImages(searchLimit, catBreed);
-      setLimitedCatImages(limitedBreeds);
+      const limitedCats = await getCatsByBreed(catBreed, searchLimit);
+      setLimitedCatImages(limitedCats);
     };
 
     const setAllBreedsData = async () => {
