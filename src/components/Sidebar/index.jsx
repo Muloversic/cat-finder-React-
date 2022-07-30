@@ -22,8 +22,8 @@ const Sidebar = ({ currentPageName }) => {
         </div>
         <div className="aside-nav-body">
           <img src={logo} alt="logo" className="aside-logo" />
-          <h1 className="aside-title">Hi intern!</h1>
-          <p className="aside-text">Welcome to MI 2022 Front-end test</p>
+          <h1 className="aside-title">Hi human</h1>
+          <p className="aside-text">Welcome to cat finder!</p>
           <ul className="aside-nav aside-nav-list">
             <li className="aside-nav-item">
               <NavLink to="/voting" className="aside-nav-link">
@@ -57,8 +57,8 @@ const Sidebar = ({ currentPageName }) => {
       <aside className="aside">
         <img src={logo} alt="logo" className="aside-logo" />
         <div className="aside-welcome">
-          <h1 className="aside-title">Hi intern!</h1>
-          <p className="aside-text">Welcome to MI 2022 Front-end test</p>
+          <h1 className="aside-title">Hi human</h1>
+          <p className="aside-text">Welcome to cat finder!</p>
         </div>
         <div className="aside-action">
           <h2 className="aside-action-title">Lets start using The Cat API</h2>
