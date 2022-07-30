@@ -26,18 +26,34 @@ body {
     left: 50%;
     transform: translate(-50%, 200%);
   }
+
   &-wrapper {
     margin-top: 10px;
     background-color: #fff;
     padding: 20px;
     border-radius: 20px;
     @media screen and(max-width:768px) {
-      padding: 5px 0;
+      padding: 5px 10px;
     }
   }
 
   @media screen and(max-width:1200px) {
     margin-top: 80px;
+    width: 670px;
+    justify-content: center;
+    align-items: center;
+  }
+  @media screen and(max-width:768px) {
+    margin-top: 80px;
+    width: 510px;
+  }
+  @media screen and(max-width:530px) {
+    margin-top: 80px;
+    width: 330px;
+  }
+  @media screen and(max-width:320px) {
+    margin-top: 80px;
+    width: 310px;
   }
 }
 
@@ -62,5 +78,16 @@ body {
   border: 2px solid #fff !important;
   &:hover {
     border: 2px solid #fbe0dc !important;
+  }
+}
+
+.actionbar-sort-buttons {
+  @media (max-width: 768px) {
+    width: 25%;
+    justify-content: space-between;
+  }
+  @media (max-width: 530px) {
+    width: 35%;
+    justify-content: space-between;
   }
 }
