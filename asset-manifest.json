@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.da4e72cf.css",
+    "main.js": "/static/js/main.8edb6737.js",
+    "static/js/787.4060a4ff.chunk.js": "/static/js/787.4060a4ff.chunk.js",
+    "static/media/girl-and-pet.png": "/static/media/girl-and-pet.c16c256c4be73fbb57a5.png",
+    "static/media/images-search.png": "/static/media/images-search.1fc5acd333c61e9e2740.png",
+    "static/media/vote-table.png": "/static/media/vote-table.639a0ba9dcae963edb2a.png",
+    "static/media/pet-breeds.png": "/static/media/pet-breeds.98267491509ecadeac39.png",
+    "static/media/iconfont.svg?gzx1jw": "/static/media/iconfont.11913029a413ac33f1e3.svg",
+    "static/media/logo.svg": "/static/media/logo.357eb1973096471ea6801715f338def2.svg",
+    "static/media/iconfont.eot?gzx1jw": "/static/media/iconfont.15e49d7f237c000046a4.eot",
+    "static/media/iconfont.woff?gzx1jw": "/static/media/iconfont.61ddd2571bd172164e3a.woff",
+    "static/media/iconfont.ttf?gzx1jw": "/static/media/iconfont.f2bcf27bd2e82c150897.ttf",
+    "static/media/sort-az.svg": "/static/media/sort-az.db485a20099b96d82c68.svg",
+    "static/media/sort-hover.svg": "/static/media/sort-hover.739e260c8833e356c489.svg",
+    "static/media/sort-revert-hover.svg": "/static/media/sort-revert-hover.cc0558787cd8151108f9.svg",
+    "static/media/sort-za.svg": "/static/media/sort-za.0e988999bb21bf46767e.svg",
+    "static/media/error.svg": "/static/media/error.77d680b62ef7678640d5.svg",
+    "static/media/success.svg": "/static/media/success.4a94fc5d492627cc3742.svg",
+    "index.html": "/index.html",
+    "main.da4e72cf.css.map": "/static/css/main.da4e72cf.css.map",
+    "main.8edb6737.js.map": "/static/js/main.8edb6737.js.map",
+    "787.4060a4ff.chunk.js.map": "/static/js/787.4060a4ff.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da4e72cf.css",
+    "static/js/main.8edb6737.js"
+  ]
+}
